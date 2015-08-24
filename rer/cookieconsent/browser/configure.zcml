@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="rer.cookieconsent">
+
+    <browser:resourceDirectory
+        name="rer.cookieconsent.resources"
+        directory="resources"
+		layer="..interfaces.ICookieConsentLayer"
+        />
+
+    <browser:page
+       name="reset-optout"
+       for="*"
+       class=".util.ResetOptoutView"
+       permission="zope.Public"
+      />
+
+    <browser:page
+       name="optout-dashboard"
+       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+       class=".dashboard.OptOutDashboardView"
+	   template="dashboard.pt"
+       permission="zope2.View"
+      />
+
+</configure>

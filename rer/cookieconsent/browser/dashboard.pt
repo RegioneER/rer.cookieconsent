@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="rer.cookieconsent">
+<body>
+
+<metal:content-title fill-slot="content-title">
+    <metal:content-title define-macro="content-title">
+    	<h1 class="documentFirstHeading"
+		    i18n:translate="">Cookies settings</h1>
+    </metal:content-title>
+</metal:content-title>
+
+<metal:content-description fill-slot="content-description">
+	<div class="documentDescription" i18n:translate="optout_dashboard_description">
+		From this dashboard you can configure which type of cookies you want to obtain
+		from the site.
+		Rejecting a category of cookie will commonly reduce the usability and features
+		provided.
+	</div>
+</metal:content-description>
+
+<metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core">
+
+	<form id="optout-form" method="post" action=""
+	      tal:attributes="action string:${portal_url}/@@${view/__name__}"
+		  tal:define="optouts view/optouts;">
+	
+		<div class="field">
+			<input type="checkbox" id="accept_cookies" name="accept_cookies" value="true"
+			       tal:attributes="checked python:'checked' if view.general_cookie_consent else False"/>
+			<label for="accept_cookies">General cookies consent</label>
+			<div class="formHelp" i18n:translate="accept_cookies_help">
+				Global settings for accept or deny cookies in this site.
+			</div>
+		</div>
+	
+		<optout tal:repeat="optout optouts">
+			<div class="field" tal:attributes="id string:optout-app-${optout/id}">
+				<h2 tal:content="optout/title">
+					Social Cookies
+				</h2>
+				<div class="optoutDescription" tal:content="structure optout/description">
+					Explanation of the opt-out
+				</div>
+				<div class="optoutAction">
+					<input type="radio" id="" name=""
+					       tal:attributes="id string:${optout/id}_true;
+						                   name string:app_${optout/id};
+										   disabled python:'disabled' if not view.general_cookie_consent else False;
+										   checked python:'checked' if not optout['cookie'] else False"
+										   value="false" />
+					<label for="" tal:attributes="for string:${optout/id}_true">Grant consent</label><br />
+					<input type="radio" id="" name=""
+					       tal:attributes="id string:${optout/id}_false;
+						                   name string:app_${optout/id};
+										   disabled python:'disabled' if not view.general_cookie_consent else False;
+										   checked python:'checked' if optout['cookie'] else False"
+										   value="true" />
+					<label for="" tal:attributes="for string:${optout/id}_false">Deny consent</label>
+
+				</div>
+			</div>
+		</optout>
+	
+		<input type="hidden" name="form.submitted" value="1" />
+		<input type="submit" name="Save" value="Save" class="context"
+		       i18n:domain="plone" i18n:attributes="value" />
+	</form>
+
+    </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+

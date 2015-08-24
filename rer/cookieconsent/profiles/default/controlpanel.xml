@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<object name="portal_controlpanel"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        i18n:domain="rer.cookieconsent">
+
+    <configlet
+        title="Cookie consent configuration"
+        action_id="cookieconsent-settings"
+        appId="rer.cookieconsent"
+        category="Products"
+        condition_expr=""
+        icon_expr="string:${portal_url}/++resource++rer.cookieconsent.resources/cookie.png"
+        url_expr="string:${portal_url}/@@cookieconsent-controlpanel"
+        visible="True"
+        i18n:attributes="title">
+            <permission>rer.cookieconsent: Manage settings</permission>
+    </configlet>
+
+</object>

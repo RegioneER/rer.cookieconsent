@@ -1,0 +1,45 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="rer.cookieconsent">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <i18n:registerTranslations directory="locales" />
+
+  <include package="Products.CMFPlone" />
+  <include package="collective.jsconfiguration" />
+
+  <permission
+        id="rer.cookieconsent.permissions.ManageSettings"
+        title="rer.cookieconsent: Manage settings"
+        />
+
+  <include package=".browser" />
+  <include package=".controlpanel" />
+  <include package=".jsconfiguration" />
+
+  <!--adapter
+      factory=".init_cookies.send_initial_cookies_values"
+      provides="ZPublisher.interfaces.IPubSuccess"
+      /-->
+  <subscriber
+      handler=".init_cookies.send_initial_cookies_values"
+      for="ZPublisher.interfaces.IPubSuccess"
+      />
+
+  <utility
+    component=".vocabularies.SupportedContentLanguageVocabularyFactory"
+    name="rer.cookieconsent.vocabularies.AvailableLanguages"
+    />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="RER: Cookie Consent"
+      directory="profiles/default"
+      description="A cookie consent solution; used for European Cookie Law by Emilia Romagna Region"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+</configure>

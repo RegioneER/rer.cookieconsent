@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="rer.cookieconsent"
+           interface="rer.cookieconsent.interfaces.ICookieConsentLayer" />
+</layers>

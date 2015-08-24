@@ -1,0 +1,36 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="rer.cookieconsent">
+
+  <adapter
+    factory=".configuration.JSONConfigurationAdapter"
+    provides="collective.jsconfiguration.interfaces.IJSONDataProvider"
+    for="*
+	     ..interfaces.ICookieConsentLayer
+	     *"
+    name="cookieconsent-banner-configuration"
+    />
+
+  <adapter
+    factory=".configuration.DOMConfigurationAdapter"
+    provides="collective.jsconfiguration.interfaces.IDOMDataProvider"
+    for="*
+	     ..interfaces.ICookieConsentLayer
+	     *"
+    name="cookieconsent-banner-configuration-label"
+    />
+
+  <adapter
+    factory=".fields_adapter.CookieBannerSettingsAdapter"
+    provides="collective.regjsonify.interfaces.IJSONFieldDumper"
+    for="..controlpanel.interfaces.ICookieBannerEntryPersistentObject"
+    />
+
+  <adapter
+    factory=".fields_adapter.OptOutSettingsAdapter"
+    provides="collective.regjsonify.interfaces.IJSONFieldDumper"
+    for="..controlpanel.interfaces.IOptOutEntryPersistentObject"
+    />
+
+</configure>

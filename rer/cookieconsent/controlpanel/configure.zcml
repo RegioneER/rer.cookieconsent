@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="rer.cookieconsent">
+
+    <browser:page
+        name="cookieconsent-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".view.CookieConsentSettingsControlPanel"
+        permission="rer.cookieconsent.permissions.ManageSettings"
+        layer="..interfaces.ICookieConsentLayer"
+        />
+
+</configure>

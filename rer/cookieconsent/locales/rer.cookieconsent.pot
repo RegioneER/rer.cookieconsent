@@ -1,0 +1,94 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-08-21 12:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: rer.cookieconsent\n"
+
+#: ../jsconfiguration/banner-configuration-labels.pt:2
+msgid "Accept"
+msgstr ""
+
+#: ../controlpanel/view.py:49
+msgid "Changes cancelled"
+msgstr ""
+
+#: ../controlpanel/view.py:43
+msgid "Changes saved"
+msgstr ""
+
+#: ../controlpanel/view.py:34
+msgid "Configuration of the cookie consent product"
+msgstr ""
+
+#: ../controlpanel/view.py:22
+msgid "Cookie consent banner"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:91
+msgid "Cookie consent banner configuration"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:85
+#: ../controlpanel/view.py:33
+#: ../profiles/default/controlpanel.xml
+msgid "Cookie consent configuration"
+msgstr ""
+
+msgid "RER: Cookie Consent"
+msgstr ""
+
+#: ../jsconfiguration/banner-configuration-labels.pt:3
+msgid "Reject"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:53
+msgid "Text of the privacy Policy"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:44
+msgid "URL of the privacy Policy"
+msgstr ""
+
+#. Default: "For every involved language in the site, provide a configuration of the cookie consent banner.\nThe first defined policy configuration will be the default ones (the ones used when not language specific configuration is found)"
+#: ../controlpanel/interfaces.py:86
+msgid "help_cookie_consent_configuration"
+msgstr ""
+
+#. Default: "Language"
+#: ../controlpanel/interfaces.py:22
+msgid "language_lang"
+msgstr ""
+
+#. Default: "The text to be used when generating the URL specified in the \"URL of the privacy Policy\".\nIf not provided, the full URL is used."
+#: ../controlpanel/interfaces.py:54
+msgid "privacy_link_text_help"
+msgstr ""
+
+#. Default: "An URL, or a absolute path, to a page where user can see the full provacy policy of your site.\nExamples: \"http://externalsite.com/privacy.html\", \"/internal/document\"."
+#: ../controlpanel/interfaces.py:45
+msgid "privacy_link_url_help"
+msgstr ""
+
+#. Default: "Provide the text to be put inside the cookie consent banner.\nYou can (must) use HTML here but you can still avoit it.\nUse the \"$privacy_link\" marker to insert an HTML link to the privacy policy (see below).\nIf you want full controls over the HTML generated you can use the \"$privacy_link_url\" marker(URL of the link) and \"$privacy_link_text\" (text of the link)."
+#: ../controlpanel/interfaces.py:32
+msgid "text_help"
+msgstr ""
+
+#. Default: "Cookie consent warning text"
+#: ../controlpanel/interfaces.py:30
+msgid "text_label"
+msgstr ""
+
