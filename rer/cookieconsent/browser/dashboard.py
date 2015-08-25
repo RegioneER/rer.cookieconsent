@@ -56,11 +56,11 @@ class OptOutDashboardView(BrowserView):
                                         expires=self.nextYear.rfc822())
 
 
-    def _i18n_alternatives(self, oo_conf, id, default):
-        oo_i18n_id = u"%s_optout_%s" % (oo_conf.app_id, id)
+    def _i18n_alternative(self, app_id, id):
+        oo_i18n_id = u"%s_optout_%s" % (app_id, id)
         oo_item = translate(_(oo_i18n_id), context=self.request)
         if unicode(oo_item)==oo_i18n_id:
-            oo_item = default
+            return app_id
         return oo_item
 
     @memoize
@@ -78,8 +78,8 @@ class OptOutDashboardView(BrowserView):
         for oo_conf in settings.optout_configuration:
             optout = {}
             optout['id'] = oo_conf.app_id
-            optout['title'] = self._i18n_alternatives(oo_conf, u'title', oo_conf.app_title)
-            raw_i18n_desc = self._i18n_alternatives(oo_conf, u'description', oo_conf.app_description)
+            optout['title'] = oo_conf.app_title if oo_conf.app_title else self._i18n_alternative(oo_conf.app_id, u'title')
+            raw_i18n_desc = oo_conf.app_description if oo_conf.app_description else self._i18n_alternative(oo_conf.app_id, u'description')
             optout['description'] = '<br />'.join(raw_i18n_desc.strip().splitlines())
             
             # check cookies: to enable the radio as "deny" we care about at least of one cookie
