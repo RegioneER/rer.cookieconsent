@@ -30,19 +30,23 @@ def send_initial_cookies_values(event):
     if config.COOKIECONSENT_NAME in request.response.cookies:
         return
 
-    optout_all(request)
+    optout_all(request, 'true')
 
     
-def optout_all(request):
+def optout_all(request, value, update=False):
+    """
+    For all of the opt-out cookies, set the value
+    This will not change values for cookies already set until update=True is provided
+    """
     site = getSite()
     registry = queryUtility(IRegistry)
     settings = registry.forInterface(ICookieConsentSettings)
     for oo_conf in settings.optout_configuration:
         for cookie in oo_conf.cookies:
             cookiename = "%s-optout" % cookie
-            if cookiename in request.cookies:
+            if cookiename in request.cookies and not update:
                 continue
             nextYear = DateTime() + 365
-            request.response.setCookie(cookiename, 'true',
+            request.response.setCookie(cookiename, value,
                                        path='/'.join(site.getPhysicalPath()),
                                        expires=nextYear.rfc822())

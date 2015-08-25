@@ -38,7 +38,7 @@ class OptOutDashboardView(BrowserView):
         form = request.form
         if not form.get('accept_cookies'):
             # Cookie policy rejected: set all of the opt-out cookies
-            optout_all(request)
+            optout_all(request, 'true', update=True)
             self.setOneYearCookie(config.COOKIECONSENT_NAME, 'false')
             return
         # Cookie consent given: let's save also optout cookies
@@ -81,7 +81,7 @@ class OptOutDashboardView(BrowserView):
             optout['id'] = oo_conf.app_id
             optout['title'] = self._i18n_alternatives(oo_conf, u'title', oo_conf.app_title)
             raw_i18n_desc = self._i18n_alternatives(oo_conf, u'description', oo_conf.app_description)
-            optout['description'] = '<br />'.join(raw_i18n_desc.splitlines())
+            optout['description'] = '<br />'.join(raw_i18n_desc.strip().splitlines())
             
             # check cookies: to enable the radio as "deny" we care about at least of one cookie
             negative_cookies = [c for c in oo_conf.cookies \

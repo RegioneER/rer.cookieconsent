@@ -7,7 +7,7 @@ tests_require = ['plone.app.testing']
 
 setup(name='rer.cookieconsent',
       version=version,
-      description="A cookie consent Plone solution; used for European Cookie Law by Emilia Romagna Region",
+      description="A cookies consent Plone solution; used for European Cookie Law by Emilia Romagna Region",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from

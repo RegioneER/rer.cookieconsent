@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="rer.cookieconsent">
+
+    <adapter
+        factory=".handlers.CookieConsentXMLAdapter"
+        name="rer.cookieconsent"
+        />
+
+    <!-- Register import and export steps -->
+    <genericsetup:importStep
+        name="rer.cookieconsent"
+        title="RER: Cookies Consent"
+        description="Import cookies consent configuration"
+        handler=".handlers.importCookieConsentSettings">
+        <depends name="registry.xml"/>
+    </genericsetup:importStep>
+
+    <!--genericsetup:exportStep
+        name="rer.cookieconsent"
+        title="RER: Cookies Consent"
+        description="Export cookies consent configuration"
+        handler=".handlers.exportCookieConsentSettings"
+        /-->
+
+</configure>

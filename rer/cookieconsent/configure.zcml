@@ -19,6 +19,7 @@
   <include package=".browser" />
   <include package=".controlpanel" />
   <include package=".jsconfiguration" />
+  <include package=".exportimport" />
 
   <!--adapter
       factory=".init_cookies.send_initial_cookies_values"
@@ -36,10 +37,18 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="RER: Cookie Consent"
+      title="RER: Cookies Consent"
       directory="profiles/default"
       description="A cookie consent solution; used for European Cookie Law by Emilia Romagna Region"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+  <genericsetup:registerProfile
+      name="rer"
+      title="RER: Cookies Consent default configuration"
+      directory="profiles/rer"
+      description="Cookies consent settings used by Emilia-Romagna Region"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
 
 </configure>

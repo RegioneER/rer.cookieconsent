@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<object>
+  <property name="accept-on-click">True</property>
+
+  <cookie_consent_configuration purge="True">
+      <object>
+        <property name="lang">it</property>
+        <property name="text">
+        	Per offrire informazioni e servizi nel miglior modo possibile, questo sito utilizza cookie tecnici e cookie di terza parte.
+			Per maggiori informazioni sui cookie utilizzati e su come eventualmente disabilitarli leggi la nostra $privacy_link.
+        </property>
+        <property name="privacy-link-url">/privacy</property>
+        <property name="privacy-link-text">privacy policy</property>
+      </object>
+      <object>
+        <property name="lang">en</property>
+        <property name="text">
+        	This site uses technical and third-party cookies to provide better informations and services.
+			If you want to know more or how to disable them, read our $privacy_link.
+        </property>
+        <property name="privacy-link-url">/en/privacy</property>
+        <property name="privacy-link-text">privacy policy</property>
+      </object>
+
+  </cookie_consent_configuration>
+
+  <optout_configuration purge="True">
+    <object>
+        <property name="app-id">social</property>
+        <property name="cookies">
+            <element>social</element>
+        </property>
+        <property name="app-title">Cookie dei social network</property>
+        <property name="app-description">&lt;em&gt;Foo&lt;/em&gt; bar baz</property>
+    </object>
+    <object>
+        <property name="app-id">maps</property>
+        <property name="cookies">
+            <element>maps</element>
+        </property>
+        <property name="app-title">Cookie dal servizio di mappe</property>
+        <property name="app-description">&lt;em&gt;Foo&lt;/em&gt; bar baz</property>
+    </object>
+    <object>
+        <property name="app-id">analytics</property>
+        <property name="cookies">
+            <element>analytics</element>
+        </property>
+        <property name="app-title">Cookie dal sistema di statistiche</property>
+        <property name="app-description">&lt;em&gt;Foo&lt;/em&gt; bar baz</property>
+    </object>
+    <object>
+        <property name="app-id">embed</property>
+        <property name="cookies">
+            <element>embed</element>
+        </property>
+        <property name="app-title">Cookie da inclusione di codice preso da altri siti</property>
+        <property name="app-description">&lt;em&gt;Foo&lt;/em&gt; bar baz</property>
+    </object>
+  </optout_configuration>
+
+</object>

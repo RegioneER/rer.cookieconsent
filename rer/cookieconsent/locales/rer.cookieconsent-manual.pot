@@ -17,8 +17,8 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rer.cookieconsent\n"
 
-msgid "RER: Cookie Consent"
+msgid "RER: Cookies Consent"
 msgstr ""
 
-msgid "RER: Cookie Consent"
-msgstr "A cookie consent solution; used for European Cookie Law by Emilia Romagna Region"
+msgid "A cookies consent solution; used for European Cookie Law by Emilia Romagna Region"
+msgstr ""
