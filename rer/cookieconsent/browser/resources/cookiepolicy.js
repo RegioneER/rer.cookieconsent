@@ -374,7 +374,7 @@
       this.href += '/@@reset-optout';
         }
         $('a:not(.cc_banner-wrapper a)').click(forcePolicyAcceptance);
-        //$('form').submit(forcePolicyAcceptance);
+        $('form').submit(forcePolicyAcceptance);
       }
 
       cookieconsent.init();
