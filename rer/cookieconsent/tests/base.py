@@ -7,10 +7,11 @@ from plone.registry.interfaces import IRegistry
 from rer.cookieconsent.interfaces import ICookieConsentLayer
 from rer.cookieconsent.controlpanel.interfaces import ICookieConsentSettings
 from rer.cookieconsent.controlpanel.interfaces import OptOutEntry
+from zope.component import provideAdapter
 
 
 class BaseTestCase(unittest.TestCase):
-    
+
     def getSettings(self):
         registry = queryUtility(IRegistry)
         return registry.forInterface(ICookieConsentSettings, check=False)

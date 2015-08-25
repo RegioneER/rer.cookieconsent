@@ -20,6 +20,11 @@ class CookieConsentPanel(PloneSandboxLayer):
     def setUpZope(self, app, configurationContext):
         # Load ZCML for this package
         import rer.cookieconsent
+        import collective.regjsonify
+        xmlconfig.file('configure.zcml',
+                       collective.regjsonify,
+                       context=configurationContext)
+        # xmlconfig registration below only needed for Plone 4.2 compatibility
         xmlconfig.file('configure.zcml',
                        rer.cookieconsent,
                        context=configurationContext)

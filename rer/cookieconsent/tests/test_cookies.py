@@ -27,7 +27,9 @@ class CoockiesTestCase(BaseTestCase):
     def setUp(self):
         self.markRequestWithLayer()
         self.populateConfig()
-    
+        request = self.layer['request']
+        request['ACTUAL_URL'] = 'http://plone/@@sharing'
+
     def populateConfig(self):
         settings = self.getSettings()
         settings.optout_configuration = (
@@ -40,7 +42,7 @@ class CoockiesTestCase(BaseTestCase):
         portal = self.layer['portal']
         request = self.layer['request']
         raiseFakeEvent(request)
-        view = getMultiAdapter((portal, request), name=u"sitemap")
+        view = getMultiAdapter((portal, request), name=u"sharing")
         view()
         cookies = request.response.cookies
         self.assertFalse(config.COOKIECONSENT_NAME in cookies)

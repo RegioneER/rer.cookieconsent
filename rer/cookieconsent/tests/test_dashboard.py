@@ -17,7 +17,9 @@ class DashboardTestCase(BaseTestCase):
         self.markRequestWithLayer()
         self.populateConfig()
         self.date = DateTime() + 1
-    
+        request = self.layer['request']
+        request['ACTUAL_URL'] = 'http://plone/@@optout-dashboard'
+
     def populateConfig(self):
         settings = self.getSettings()
         settings.optout_configuration = (
