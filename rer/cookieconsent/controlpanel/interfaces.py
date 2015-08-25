@@ -32,7 +32,7 @@ class ICookieBannerEntry(Interface):
                       default=u"Provide the text to be put inside the cookie consent banner.\n"
                               u"You can (must) use HTML here but you can still avoit it.\n"
                               u"Use the \"$privacy_link\" marker to insert an HTML link to the privacy policy (see below).\n"
-                              u"If you want full controls over the HTML generated you can use the \"$privacy_link_url\" marker"
+                              u"If you want full controls over the HTML generated you can use the \"$privacy_link_url\" marker "
                               u"(URL of the link) and \"$privacy_link_text\" (text of the link)."),
         default=u"",
         missing_value=u"",
