@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from rer.cookieconsent import config 
-from zope.interface import Interface
 from DateTime import DateTime
 #from ZPublisher.interfaces import IPubBeforeCommit, IPubSuccess
-from zope.component.hooks import getSite
 from plone.browserlayer.utils import registered_layers
-from rer.cookieconsent.interfaces import ICookieConsentLayer
 from plone.registry.interfaces import IRegistry
+from rer.cookieconsent import config 
 from rer.cookieconsent.controlpanel.interfaces import ICookieConsentSettings
+from rer.cookieconsent.interfaces import ICookieConsentLayer
 from zope.component import queryUtility
+from zope.component.hooks import getSite
 
 
 #@adapter(IPubSuccess)

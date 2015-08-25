@@ -1,16 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from xml.dom.minidom import Document
 from zope.interface import implements
-from zope.interface import Interface
-from zope.interface import alsoProvides
-from zope.interface import noLongerProvides
 from zope.component import adapts
 from zope.component import getSiteManager
 from zope.component import queryMultiAdapter
-from zope.component import getMultiAdapter
 from zope.component.interfaces import IComponentRegistry
-from zope.annotation.interfaces import IAnnotations
 from Products.GenericSetup.interfaces import IBody
 from Products.GenericSetup.interfaces import ISetupEnviron
 from Products.GenericSetup.utils import XMLAdapterBase

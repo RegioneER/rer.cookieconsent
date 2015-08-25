@@ -34,7 +34,6 @@ class OptOutDashboardView(BrowserView):
 
     def _save_changes(self):
         request = self.request
-        cookies = request.cookies
         form = request.form
         if not form.get('accept_cookies'):
             # Cookie policy rejected: set all of the opt-out cookies
