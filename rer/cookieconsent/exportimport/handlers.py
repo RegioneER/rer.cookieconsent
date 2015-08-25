@@ -82,6 +82,13 @@ class CookieConsentXMLAdapter(XMLAdapterBase):
         for child in node.childNodes:
             tagName, name = self.nodedata(child)
             if name in ('lang', 'text', 'privacy-link-url', 'privacy-link-text'):
+                if name=='lang':
+                    # check if the language is valid for that site
+                    lang = self._getNodeText(child).decode('utf-8')
+                    lang_tool =  getToolByName(self.context, 'portal_languages')
+                    if lang not in lang_tool.getSupportedLanguages():
+                        logger.info("Can't configure %s language in that site" % lang)
+                        return
                 setattr(bannerconf, name.replace('-', '_'),
                         self._getNodeText(child).decode('utf-8'))
         settings.cookie_consent_configuration += (bannerconf,)
