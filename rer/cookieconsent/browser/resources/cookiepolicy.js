@@ -47,9 +47,9 @@
   var cookie_consent_configuration = null;
   for (var i=0;i<bannerConfiguration.cookie_consent_configuration.length; i++) {
     if (bannerConfiguration.cookie_consent_configuration[i].lang===currentLanguage) {
-    cookie_consent_configuration = bannerConfiguration.cookie_consent_configuration[i];
-    break;
-  }
+      cookie_consent_configuration = bannerConfiguration.cookie_consent_configuration[i];
+      break;
+    }
   }
   if (!cookie_consent_configuration) {
     cookie_consent_configuration = bannerConfiguration.cookie_consent_configuration[0];
@@ -62,7 +62,7 @@
     accept_url: bannerConfiguration.here_url
       ? (bannerConfiguration.here_url + '/' + RESET_OPTOUT_COOKIES_VIEW + '?came_from=' + bannerConfiguration.actual_url)
       : 'javascript:void(0)',
-  reject_url: 'javascript:void(0)',
+    reject_url: 'javascript:void(0)',
     learnMore: 'Privacy policy',
     link: portal_url + '/privacy',
     theme: portal_url + '/++resource++rer.cookieconsent.resources/cookiepolicy.css'
