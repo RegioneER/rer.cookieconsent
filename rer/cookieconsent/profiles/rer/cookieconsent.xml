@@ -2,7 +2,7 @@
 <object>
   <property name="accept-on-click">True</property>
 
-  <cookie_consent_configuration purge="True">
+  <cookie_consent_configuration>
       <object>
         <property name="lang">it</property>
         <property name="text">
@@ -24,7 +24,7 @@
 
   </cookie_consent_configuration>
 
-  <optout_configuration purge="True">
+  <optout_configuration>
     <object>
         <property name="app-id">social</property>
         <property name="cookies">
