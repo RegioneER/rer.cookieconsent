@@ -140,7 +140,7 @@
       expirydays = expirydays || 365;
       exdate.setDate(exdate.getDate() + expirydays);
       document.cookie = name + '=' + value + '; expires=' + exdate.toUTCString() + '; path='
-	      + (bannerConfiguration.portal_path ? bannerConfiguration.portal_path : '/');
+        + (bannerConfiguration.portal_path ? bannerConfiguration.portal_path : '/');
     },
 
     addEventListener: function (el, event, eventListener) {
@@ -366,15 +366,18 @@
       // Events for automatic policy acceptance
       if (bannerConfiguration.accept_on_click) {
         function forcePolicyAcceptance(ev) {
-      // Prevent accepting policy if we want to read the policy
-      if (this.tagName.toLowerCase()==='a' && this.href.indexOf(cookie_consent_configuration.privacy_link_url)===0) {
-        return
-      }
+          // Prevent accepting policy if we want to read the policy or access the dashboard
+          if (this.tagName.toLowerCase()==='a') {
+            if (this.href.indexOf(cookie_consent_configuration.privacy_link_url) === 0 ||
+                this.href.indexOf(cookie_consent_configuration.dashboard_url) === 0) {
+              return
+            }
+          }
           cookieconsent.accept();
-      this.href += '/@@reset-optout';
+          this.href += '/@@reset-optout';
         }
         $('a:not(.cc_banner-wrapper a)').click(forcePolicyAcceptance);
-        $('form').submit(forcePolicyAcceptance);
+        $('form:not(#optout-form)').submit(forcePolicyAcceptance);
       }
 
       cookieconsent.init();

@@ -84,7 +84,7 @@ class IOptOutEntry(Interface):
         title=_(u'Application title'),
         description=_('app_title_help',
                       default=u"This will be the title used in the opt-out configuration dashboard.\n"
-                              u"If not provided, a translation for \"APP_ID_optout_title\" will be used"),
+                              u"If not provided, a translation for \"APPID_optout_title\" will be used"),
         default=u"",
         missing_value=u"",
         required=False,
@@ -94,7 +94,7 @@ class IOptOutEntry(Interface):
         title=_(u'Application description'),
         description=_('app_description_help',
                       default=u"A long description that must explain what this opt-out will do if activated.\n"
-                              u"If not provided, a translation for \"APP_ID_optout_description\" will be used"),
+                              u"If not provided, a translation for \"APPID_optout_description\" will be used"),
         default=u"",
         missing_value=u"",
         required=False,
