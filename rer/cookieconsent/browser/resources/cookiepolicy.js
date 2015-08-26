@@ -332,7 +332,7 @@
   var init;
   var initialized = false;
   (init = function () {
-    if (!initialized && document.readyState == 'complete') {
+    if (!initialized && document.readyState == 'interactive') {
     
       bannerConfiguration = $.parseJSON($('#' + BANNER_CONF_ID).text());
 
