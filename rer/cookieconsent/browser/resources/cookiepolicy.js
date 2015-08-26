@@ -6,9 +6,10 @@
 
 (function ($) {
   // Stop from running again, if accidently included more than once.
+
   if (window.hasCookieConsent) return;
   window.hasCookieConsent = true;
-  
+
   var portal_url = window.portal_url || '';
 
   /*
@@ -33,40 +34,11 @@
     return;
   }
 
-  var bannerConfiguration = $.parseJSON($('#' + BANNER_CONF_ID).text());
-  
-  if (!bannerConfiguration || bannerConfiguration.cookie_consent_configuration.length===0) {
-    // No configuration provided: no output
-    return;
-  }
-
-  var currentLanguage = $('html').attr('lang') || 'en';
-  var $labelsElement = $($('#cookieconsent-banner-configuration-label').text());
-  
-  // Now load the "right" configuration: take the one for the current language or the first (default) ones
-  var cookie_consent_configuration = null;
-  for (var i=0;i<bannerConfiguration.cookie_consent_configuration.length; i++) {
-    if (bannerConfiguration.cookie_consent_configuration[i].lang===currentLanguage) {
-      cookie_consent_configuration = bannerConfiguration.cookie_consent_configuration[i];
-      break;
-    }
-  }
-  if (!cookie_consent_configuration) {
-    cookie_consent_configuration = bannerConfiguration.cookie_consent_configuration[0];
-  }
-
-  window.cookieconsent_options = {
-    message: cookie_consent_configuration.text,
-    accept: $labelsElement.find('accept').text(),
-    reject: $labelsElement.find('reject').text(),
-    accept_url: bannerConfiguration.here_url
-      ? (bannerConfiguration.here_url + '/' + RESET_OPTOUT_COOKIES_VIEW + '?came_from=' + bannerConfiguration.actual_url)
-      : 'javascript:void(0)',
-    reject_url: 'javascript:void(0)',
-    learnMore: 'Privacy policy',
-    link: portal_url + '/privacy',
-    theme: portal_url + '/++resource++rer.cookieconsent.resources/cookiepolicy.css'
-  };
+  // rer.cookieconsent structures, inited after DOM load below
+  var bannerConfiguration = null,
+      currentLanguage = null,
+      $labelsElement = null
+      cookie_consent_configuration = null;
 
   // IE8...
   if(typeof String.prototype.trim !== 'function') {
@@ -269,7 +241,6 @@
     init: function () {
       var options = window[OPTIONS_VARIABLE];
       if (options) this.setOptions(options);
-
       this.setContainer();
 
       // Calls render when theme is loaded.
@@ -363,6 +334,40 @@
   (init = function () {
     if (!initialized && document.readyState == 'complete') {
     
+      bannerConfiguration = $.parseJSON($('#' + BANNER_CONF_ID).text());
+
+      if (!bannerConfiguration || bannerConfiguration.cookie_consent_configuration.length===0) {
+        // No configuration provided: no output
+        return;
+      }
+
+      currentLanguage = $('html').attr('lang') || 'en';
+      $labelsElement = $($('#cookieconsent-banner-configuration-label').text());
+
+      // Now load the "right" configuration: take the one for the current language or the first (default) ones
+      for (var i=0;i<bannerConfiguration.cookie_consent_configuration.length; i++) {
+        if (bannerConfiguration.cookie_consent_configuration[i].lang===currentLanguage) {
+          cookie_consent_configuration = bannerConfiguration.cookie_consent_configuration[i];
+          break;
+        }
+      }
+      if (!cookie_consent_configuration) {
+        cookie_consent_configuration = bannerConfiguration.cookie_consent_configuration[0];
+      }
+
+      window.cookieconsent_options = {
+        message: cookie_consent_configuration.text,
+        accept: $labelsElement.find('accept').text(),
+        reject: $labelsElement.find('reject').text(),
+        accept_url: bannerConfiguration.here_url
+          ? (bannerConfiguration.here_url + '/' + RESET_OPTOUT_COOKIES_VIEW + '?came_from=' + bannerConfiguration.actual_url)
+          : 'javascript:void(0)',
+        reject_url: 'javascript:void(0)',
+        learnMore: 'Privacy policy',
+        link: portal_url + '/privacy',
+        theme: portal_url + '/++resource++rer.cookieconsent.resources/cookiepolicy.css'
+      };
+
       // Events for automatic policy acceptance
       if (bannerConfiguration.accept_on_click) {
         function forcePolicyAcceptance(ev) {
@@ -370,7 +375,7 @@
           if (this.tagName.toLowerCase()==='a') {
             if (this.href.indexOf(cookie_consent_configuration.privacy_link_url) === 0 ||
                 this.href.indexOf(cookie_consent_configuration.dashboard_url) === 0) {
-              return
+              return;
             }
           }
           cookieconsent.accept();
