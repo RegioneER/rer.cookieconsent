@@ -48,4 +48,5 @@ def optout_all(request, value, update=False):
             nextYear = DateTime() + 365
             request.response.setCookie(cookiename, value,
                                        path='/'.join(site.getPhysicalPath()),
-                                       expires=nextYear.rfc822())
+                                       expires=nextYear.rfc822(),
+                                       http_only=True)
