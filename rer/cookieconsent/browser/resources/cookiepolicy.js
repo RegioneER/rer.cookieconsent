@@ -1,6 +1,7 @@
 /**
  * http://silktide.com/cookieconsent
  * 
+ * BBB: we added also a "reject" button feature here, but it's disabled.
  * BBB: note we are also using jQuery here. That's a mixed way to do things
  */
 
@@ -296,9 +297,11 @@
     markup: [
       '<div class="cc_banner-wrapper {{containerClasses}}" aria-live="assertive" role="alert">',
         '<div class="cc_banner cc_container cc_container--open">',
-          '<a id="accept_btn" href="{{options.accept_url}}" data-cc-event="click:accept" class="cc_btn cc_btn_accept_all">{{options.accept}}</a>',
-    //      '<a id="reject_btn" href="{{options.reject_url}}" data-cc-event="click:reject" class="cc_btn cc_btn_accept_all">{{options.reject}}</a>',
           '<p class="cc_message">{{options.message}}</p>',
+          '<div class="btn_container">',
+            '<a id="accept_btn" href="{{options.accept_url}}" data-cc-event="click:accept" class="cc_btn cc_btn_accept_all">{{options.accept}}</a>',
+//            '<a id="reject_btn" href="{{options.reject_url}}" data-cc-event="click:reject" class="cc_btn cc_btn_accept_all">{{options.reject}}</a>',
+          '</div>',
         '</div>',
       '</div>'
     ],
