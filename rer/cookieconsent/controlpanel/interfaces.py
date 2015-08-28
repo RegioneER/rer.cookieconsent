@@ -33,7 +33,9 @@ class ICookieBannerEntry(Interface):
                               u"You can (must) use HTML here but you can still avoid it.\n"
                               u"Use the \"$privacy_link\" marker to insert an HTML link to the privacy policy (see below).\n"
                               u"If you want full controls over the HTML generated you can use the \"$privacy_link_url\" marker "
-                              u"(URL of the link) and \"$privacy_link_text\" (text of the link)."),
+                              u"(URL of the link) and \"$privacy_link_text\" (text of the link)\n"
+                              u"In the same way you can use \"$dashboard_link\", \"$dashboard_link_url\" and \"$dashboard_text\" "
+                              u"to provide links to the opt-out dashboard."),
         default=u"",
         missing_value=u"",
         required=True,
@@ -49,11 +51,18 @@ class ICookieBannerEntry(Interface):
     )
 
     privacy_link_text = schema.TextLine(
-        title=_(u'Text of the privacy Policy'),
+        title=_(u'Text of the Privacy Policy link'),
         description=_('privacy_link_text_help',
                       default=u"The text to be used when generating the URL specified in the "
                               u"\"URL of the privacy Policy\".\n"
                               u"If not provided, the full URL is used."),
+        required=False,
+    )
+
+    dashboard_link_text = schema.TextLine(
+        title=_(u'Text of the link to opt-out dashboard'),
+        description=_('dashboard_link_text',
+                      default=u"The text to be used when generating the URL to the opt-out dashboard"),
         required=False,
     )
 
