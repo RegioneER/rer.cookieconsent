@@ -30,7 +30,7 @@ class ICookieBannerEntry(Interface):
         title=_(u"Cookie consent warning text"),
         description=_('text_help',
                       default=u"Provide the text to be put inside the cookie consent banner.\n"
-                              u"You can (must) use HTML here but you can still avoit it.\n"
+                              u"You can (must) use HTML here but you can still avoid it.\n"
                               u"Use the \"$privacy_link\" marker to insert an HTML link to the privacy policy (see below).\n"
                               u"If you want full controls over the HTML generated you can use the \"$privacy_link_url\" marker "
                               u"(URL of the link) and \"$privacy_link_text\" (text of the link)."),
@@ -43,7 +43,7 @@ class ICookieBannerEntry(Interface):
         title=_(u'URL of the privacy Policy'),
         description=_('privacy_link_url_help',
                       default=u"An URL, or a absolute path, to a page where user can see the full "
-                              u"provacy policy of your site.\n"
+                              u"privacy policy of your site.\n"
                               u"Examples: \"http://externalsite.com/privacy.html\", \"/internal/document\"."),
         required=False,
     )

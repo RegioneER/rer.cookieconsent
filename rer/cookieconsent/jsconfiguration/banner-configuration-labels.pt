@@ -1,4 +1,4 @@
 <banner-configuration i18n:domain="rer.cookieconsent">
-    <accept i18n:translate="">Accept</accept>
+    <accept i18n:translate="">OK</accept>
 	<reject i18n:translate="">Reject</reject>
 </banner-configuration>
