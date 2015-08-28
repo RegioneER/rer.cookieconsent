@@ -11,6 +11,7 @@
         </property>
         <property name="privacy-link-url">/privacy</property>
         <property name="privacy-link-text">privacy policy</property>
+        <property name="dashboard-link-text"></property>
       </object>
       <object>
         <property name="lang">en</property>
@@ -20,6 +21,7 @@
         </property>
         <property name="privacy-link-url">/en/privacy</property>
         <property name="privacy-link-text">privacy policy</property>
+        <property name="dashboard-link-text"></property>
       </object>
   </cookie_consent_configuration>
 

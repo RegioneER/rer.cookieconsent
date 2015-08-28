@@ -76,7 +76,7 @@ class CookieConsentXMLAdapter(XMLAdapterBase):
         bannerconf = CookieBannerEntry()
         for child in node.childNodes:
             tagName, name = self.nodedata(child)
-            if name in ('lang', 'text', 'privacy-link-url', 'privacy-link-text'):
+            if name in ('lang', 'text', 'privacy-link-url', 'privacy-link-text', 'dashboard-link-text'):
                 if name=='lang':
                     # check if the language is valid for that site
                     lang = self._getNodeText(child).decode('utf-8')
