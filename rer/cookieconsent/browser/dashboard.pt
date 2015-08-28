@@ -7,11 +7,11 @@
 
 <head>
     <metal:css fill-slot="style_slot">
-    	<style type="text/css">
+        <style type="text/css">
 
 #global-optput {margin-bottom: 2em;}
 
-		</style>
+        </style>
     </metal:css>
 </head>
 
@@ -49,11 +49,12 @@
                 <input type="radio" id="accept_cookies" name="accept_cookies" value="true"
                        tal:attributes="checked python:'checked' if view.general_cookie_consent else False"
                                        />
-                <label for="accept_cookies">Grant consent</label><br />
+                <label for="accept_cookies"
+                        i18n:translate="">Grant consent</label><br />
                 <input type="radio" id="reject_cookies" name="accept_cookies" value=""
                        tal:attributes="checked python:'checked' if not view.general_cookie_consent else False"
                                        />
-                <label for="reject_cookies">Deny consent</label>
+                <label for="reject_cookies" i18n:translate="">Deny consent</label>
             </div>
 
         </div>
@@ -73,14 +74,16 @@
                                            disabled python:'disabled' if not view.general_cookie_consent else False;
                                            checked python:'checked' if not optout['cookie'] else False"
                                            />
-                    <label for="" tal:attributes="for string:${optout/id}_true">Grant consent</label><br />
+                    <label tal:attributes="for string:${optout/id}_true"
+                            i18n:translate="">Grant consent</label><br />
                     <input type="radio" id="" name="" value="true"
                            tal:attributes="id string:${optout/id}_false;
                                            name string:app_${optout/id};
                                            disabled python:'disabled' if not view.general_cookie_consent else False;
                                            checked python:'checked' if optout['cookie'] else False"
                                            />
-                    <label for="" tal:attributes="for string:${optout/id}_false">Deny consent</label>
+                    <label tal:attributes="for string:${optout/id}_false"
+                           i18n:translate="">Deny consent</label>
                 </div>
             </div>
         </optout>

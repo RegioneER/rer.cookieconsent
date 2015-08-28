@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-08-28 12:48+0000\n"
+"POT-Creation-Date: 2015-08-28 14:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,9 +76,17 @@ msgstr "Cookie"
 msgid "Cookies preferences for this site"
 msgstr "Preferenze per i cookie nel sito"
 
+#: ../browser/dashboard.pt:57
+msgid "Deny consent"
+msgstr "Nega il consenso"
+
 #: ../browser/dashboard.pt:42
 msgid "General cookies consent"
 msgstr "Consenso generale ai cookie"
+
+#: ../browser/dashboard.pt:52
+msgid "Grant consent"
+msgstr "Dai il consenso"
 
 #: ../controlpanel/interfaces.py:22
 msgid "Language"
@@ -198,7 +206,6 @@ msgstr ""
 
 #. Default: "The text to be used when generating the URL specified in the \"URL of the Privacy Policy\".\nIf not provided, the full URL is used."
 #: ../controlpanel/interfaces.py:55
-#, fuzzy
 msgid "privacy_link_text_help"
 msgstr ""
 "Il testo da usare quando sarà necessario generare un URL definito nel campo \"URL all'Informatica sulla Privacy\".\n"

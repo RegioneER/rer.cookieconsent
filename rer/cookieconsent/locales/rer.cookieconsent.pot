@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-08-28 12:48+0000\n"
+"POT-Creation-Date: 2015-08-28 14:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,8 +75,16 @@ msgstr ""
 msgid "Cookies preferences for this site"
 msgstr ""
 
+#: ../browser/dashboard.pt:57
+msgid "Deny consent"
+msgstr ""
+
 #: ../browser/dashboard.pt:42
 msgid "General cookies consent"
+msgstr ""
+
+#: ../browser/dashboard.pt:52
+msgid "Grant consent"
 msgstr ""
 
 #: ../controlpanel/interfaces.py:22

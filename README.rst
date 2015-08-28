@@ -8,9 +8,10 @@ How it works
 
 This add-on gives two kind of different features:
 
-* A cookie consent confirmation banner, which should link (but it's not required) the user to a
-  **Privacy Policy**.
-* An **opt-out dashboard**
+* A cookie consent confirmation banner, which should link (but it's not required) the user to a **Privacy Policy**.
+* An **opt-out dashboard** for accept/reject single cookies
+
+This add-on is also compatible with internationalized sites (`LinguaPlone`_ supported).
 
 Cookie consent banner
 ---------------------
@@ -31,7 +32,7 @@ __ https://github.com/silktide/cookieconsent2/issues/63
 Opt-out dashboard
 -----------------
 
-Additionally an opt-out dashboard is available restricts 3rd-party cookies.
+Additionally an opt-out dashboard (a view callable as ``/@@optout-dashboard``) is available to restricts 3rd-party cookies.
 
 The dashboard composition can be configured by the control panel, but is above che scope of this add-on to manage
 how those cookies are processed.
@@ -122,5 +123,6 @@ This product was developed by RedTurtle Technology team.
 
 
 .. _`European Cookie Law`: http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32009L0136
+.. _`LinguaPlone`: https://pypi.python.org/pypi/Products.LinguaPlone
 .. _`Silktide Cookie Consent JavaScript plugin`: https://silktide.com/tools/cookie-consent/
 .. _`sc.social.like`: https://pypi.python.org/pypi/sc.social.like/
