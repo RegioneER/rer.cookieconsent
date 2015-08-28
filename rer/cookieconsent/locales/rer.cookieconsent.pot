@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-08-21 12:50+0000\n"
+"POT-Creation-Date: 2015-08-28 12:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,78 +17,182 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rer.cookieconsent\n"
 
-#: ../jsconfiguration/banner-configuration-labels.pt:2
-msgid "Accept"
+msgid "A cookie consent solution that can be used for European Cookie Law or when you care about user's privacy"
 msgstr ""
 
-#: ../controlpanel/view.py:49
+#: ../controlpanel/interfaces.py:197
+msgid "Accept policy on every click"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:117
+msgid "Application ID"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:102
+msgid "Application description"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:93
+msgid "Application name"
+msgstr ""
+
+#: ../controlpanel/view.py:55
 msgid "Changes cancelled"
 msgstr ""
 
-#: ../controlpanel/view.py:43
+#: ../browser/dashboard.py:30
+#: ../controlpanel/view.py:49
 msgid "Changes saved"
 msgstr ""
 
-#: ../controlpanel/view.py:34
-msgid "Configuration of the cookie consent product"
+#: ../controlpanel/view.py:40
+msgid "Configuration of the cookie consent in the site"
 msgstr ""
 
-#: ../controlpanel/view.py:22
+#: ../controlpanel/view.py:23
 msgid "Cookie consent banner"
 msgstr ""
 
-#: ../controlpanel/interfaces.py:91
+#: ../controlpanel/interfaces.py:211
 msgid "Cookie consent banner configuration"
 msgstr ""
 
-#: ../controlpanel/interfaces.py:85
-#: ../controlpanel/view.py:33
+#: ../controlpanel/interfaces.py:30
+msgid "Cookie consent banner content"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:206
+#: ../controlpanel/view.py:39
 #: ../profiles/default/controlpanel.xml
 msgid "Cookie consent configuration"
 msgstr ""
 
-msgid "RER: Cookie Consent"
+#: ../controlpanel/interfaces.py:126
+msgid "Cookies"
+msgstr ""
+
+#: ../browser/dashboard.pt:22
+msgid "Cookies preferences for this site"
+msgstr ""
+
+#: ../browser/dashboard.pt:42
+msgid "General cookies consent"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:22
+msgid "Language"
+msgstr ""
+
+#: ../jsconfiguration/banner-configuration-labels.pt:2
+msgid "OK"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:229
+msgid "Opt-out configuration"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:222
+msgid "Opt-out configurations"
+msgstr ""
+
+#: ../controlpanel/view.py:28
+msgid "Opt-out dashboard"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:135
+msgid "Opt-out entry titles and descriptions"
+msgstr ""
+
+#: ../controlpanel/interfaces.py:143
+msgid "Opt-out title and description"
+msgstr ""
+
+msgid "RER: Cookies Consent"
 msgstr ""
 
 #: ../jsconfiguration/banner-configuration-labels.pt:3
 msgid "Reject"
 msgstr ""
 
-#: ../controlpanel/interfaces.py:53
-msgid "Text of the privacy Policy"
+#: ../controlpanel/interfaces.py:54
+msgid "Text of the Privacy Policy link"
 msgstr ""
 
-#: ../controlpanel/interfaces.py:44
-msgid "URL of the privacy Policy"
+#: ../controlpanel/interfaces.py:63
+msgid "Text of the link to opt-out dashboard"
 msgstr ""
 
-#. Default: "For every involved language in the site, provide a configuration of the cookie consent banner.\nThe first defined policy configuration will be the default ones (the ones used when not language specific configuration is found)"
-#: ../controlpanel/interfaces.py:86
+#: ../controlpanel/interfaces.py:45
+msgid "URL of the Privacy Policy"
+msgstr ""
+
+#. Default: "A long description that must explain what this opt-out will do if activated.\nYou can also use HTML here."
+#: ../controlpanel/interfaces.py:103
+msgid "app_description_help"
+msgstr ""
+
+#. Default: "A unique identifier for the application influenced bt this opt-out"
+#: ../controlpanel/interfaces.py:118
+msgid "app_id_help"
+msgstr ""
+
+#. Default: "This will be the title used in the opt-out configuration dashboard"
+#: ../controlpanel/interfaces.py:94
+msgid "app_title_help"
+msgstr ""
+
+#. Default: "A list of cookies names prefixes.\nThis opt-out will generate a cookie in the form PREFIX-optout for every defined prefix."
+#: ../controlpanel/interfaces.py:127
+msgid "cookies_help"
+msgstr ""
+
+#. Default: "The text to be used when generating the URL to the opt-out dashboard"
+#: ../controlpanel/interfaces.py:64
+msgid "dashboard_link_text"
+msgstr ""
+
+#. Default: "Global settings for accept or deny cookies in this site."
+#: ../browser/dashboard.pt:45
+msgid "global_optput_description"
+msgstr ""
+
+#. Default: "If checked, any click on links on any page will be interpreted as the user accepted the cookie policy."
+#: ../controlpanel/interfaces.py:198
+msgid "help_accept_on_click"
+msgstr ""
+
+#. Default: "For every involved language, provide a configuration of the cookie consent banner.\nThe first defined policy configuration will be the default ones (the ones used when not language specific configuration is found)."
+#: ../controlpanel/interfaces.py:207
 msgid "help_cookie_consent_configuration"
 msgstr ""
 
-#. Default: "Language"
-#: ../controlpanel/interfaces.py:22
-msgid "language_lang"
+#. Default: "When the user accepted the general cookie policy he can still accept/decline a single kind of cookie(s) from a 3rd part application.\nFrom this panel you can configure opt-out cookies for those applications.\nPLEASE NOTE: this product will only handle and generate cookies, is duty of others products to use those cookies in the correct manner."
+#: ../controlpanel/interfaces.py:223
+msgid "help_optout_configuration"
 msgstr ""
 
-#. Default: "The text to be used when generating the URL specified in the \"URL of the privacy Policy\".\nIf not provided, the full URL is used."
-#: ../controlpanel/interfaces.py:54
+#. Default: "For every involved language provide title and description that will be used for generate an translated opt-out dashboard.\nIn the case a specific translation is missing, the first in the list will be used as default.\nIf this field is not filler, a translation for \"APPID_optout_title\" and \"APPID_optout_description\" will be used."
+#: ../controlpanel/interfaces.py:136
+msgid "help_optout_texts"
+msgstr ""
+
+#. Default: "Technical cookies don't requires user consent because they are needed for make the site works or to privide requested services. For other types of cookies you can choose from the list below which accept or reject."
+#: ../browser/dashboard.pt:28
+msgid "optout_dashboard_description"
+msgstr ""
+
+#. Default: "The text to be used when generating the URL specified in the \"URL of the Privacy Policy\".\nIf not provided, the full URL is used."
+#: ../controlpanel/interfaces.py:55
 msgid "privacy_link_text_help"
 msgstr ""
 
-#. Default: "An URL, or a absolute path, to a page where user can see the full provacy policy of your site.\nExamples: \"http://externalsite.com/privacy.html\", \"/internal/document\"."
-#: ../controlpanel/interfaces.py:45
+#. Default: "An URL, or a absolute path, to a page where user can read the full Privacy Policy of your site.\nExamples: \"http://externalsite.com/privacy.html\", \"/internal/document\"."
+#: ../controlpanel/interfaces.py:46
 msgid "privacy_link_url_help"
 msgstr ""
 
-#. Default: "Provide the text to be put inside the cookie consent banner.\nYou can (must) use HTML here but you can still avoit it.\nUse the \"$privacy_link\" marker to insert an HTML link to the privacy policy (see below).\nIf you want full controls over the HTML generated you can use the \"$privacy_link_url\" marker(URL of the link) and \"$privacy_link_text\" (text of the link)."
-#: ../controlpanel/interfaces.py:32
+#. Default: "Provide the text to be put inside the cookie consent banner.\nYou can use HTML here but you can avoid it.\nUse the \"$privacy_link\" marker to insert an HTML link to the Privacy Policy (see below).\nIf you want full controls over the HTML generated you can use the \"$privacy_link_url\" marker (URL of the link) and \"$privacy_link_text\" (text of the link).\nIn the same way you can use \"$dashboard_link\", \"$dashboard_link_url\" and \"$dashboard_text\" to provide links to the opt-out dashboard."
+#: ../controlpanel/interfaces.py:31
 msgid "text_help"
-msgstr ""
-
-#. Default: "Cookie consent warning text"
-#: ../controlpanel/interfaces.py:30
-msgid "text_label"
 msgstr ""
 

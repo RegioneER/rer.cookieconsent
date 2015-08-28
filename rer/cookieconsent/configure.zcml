@@ -39,7 +39,7 @@
       name="default"
       title="RER: Cookies Consent"
       directory="profiles/default"
-      description="A cookie consent solution; used for European Cookie Law by Emilia Romagna Region"
+      description="A cookie consent solution that can be used for European Cookie Law or when you care about user's privacy"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <genericsetup:registerProfile

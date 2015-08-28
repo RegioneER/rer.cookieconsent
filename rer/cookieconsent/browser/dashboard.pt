@@ -20,7 +20,7 @@
 <metal:content-title fill-slot="content-title">
     <metal:content-title define-macro="content-title">
         <h1 class="documentFirstHeading"
-            i18n:translate="">Cookies settings for this site</h1>
+            i18n:translate="">Cookies preferences for this site</h1>
     </metal:content-title>
 </metal:content-title>
 

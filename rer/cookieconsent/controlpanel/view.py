@@ -37,7 +37,7 @@ class CookieConsentSettingsEditForm(controlpanel.RegistryEditForm):
     groups = (FormCookieConsentBanner, FormOptOut)
     id = "CookieConsentSettingsEditForm"
     label = _(u"Cookie consent configuration")
-    description = _(u"Configuration of the cookie consent product")
+    description = _(u"Configuration of the cookie consent in the site")
 
     @button.buttonAndHandler(pmf('Save'), name='save')
     def handleSave(self, action):

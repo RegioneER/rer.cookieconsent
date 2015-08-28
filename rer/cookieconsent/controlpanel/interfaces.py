@@ -27,13 +27,13 @@ class ICookieBannerEntry(Interface):
     )
 
     text = schema.Text(
-        title=_(u"Cookie consent warning text"),
+        title=_(u"Cookie consent banner content"),
         description=_('text_help',
                       default=u"Provide the text to be put inside the cookie consent banner.\n"
-                              u"You can (must) use HTML here but you can still avoid it.\n"
-                              u"Use the \"$privacy_link\" marker to insert an HTML link to the privacy policy (see below).\n"
+                              u"You can use HTML here but you can avoid it.\n"
+                              u"Use the \"$privacy_link\" marker to insert an HTML link to the Privacy Policy (see below).\n"
                               u"If you want full controls over the HTML generated you can use the \"$privacy_link_url\" marker "
-                              u"(URL of the link) and \"$privacy_link_text\" (text of the link)\n"
+                              u"(URL of the link) and \"$privacy_link_text\" (text of the link).\n"
                               u"In the same way you can use \"$dashboard_link\", \"$dashboard_link_url\" and \"$dashboard_text\" "
                               u"to provide links to the opt-out dashboard."),
         default=u"",
@@ -42,10 +42,10 @@ class ICookieBannerEntry(Interface):
     )
 
     privacy_link_url = schema.TextLine(
-        title=_(u'URL of the privacy Policy'),
+        title=_(u'URL of the Privacy Policy'),
         description=_('privacy_link_url_help',
-                      default=u"An URL, or a absolute path, to a page where user can see the full "
-                              u"privacy policy of your site.\n"
+                      default=u"An URL, or a absolute path, to a page where user can read the full "
+                              u"Privacy Policy of your site.\n"
                               u"Examples: \"http://externalsite.com/privacy.html\", \"/internal/document\"."),
         required=False,
     )
@@ -54,7 +54,7 @@ class ICookieBannerEntry(Interface):
         title=_(u'Text of the Privacy Policy link'),
         description=_('privacy_link_text_help',
                       default=u"The text to be used when generating the URL specified in the "
-                              u"\"URL of the privacy Policy\".\n"
+                              u"\"URL of the Privacy Policy\".\n"
                               u"If not provided, the full URL is used."),
         required=False,
     )
@@ -90,9 +90,9 @@ class IOptOutEntrySubitem(Interface):
     )
 
     app_title = schema.TextLine(
-        title=_(u'Application title'),
+        title=_(u'Application name'),
         description=_('app_title_help',
-                      default=u"This will be the title used in the opt-out configuration dashboard.\n"),
+                      default=u"This will be the title used in the opt-out configuration dashboard"),
         default=u"",
         missing_value=u"",
         required=False,
@@ -114,9 +114,9 @@ class IOptOutEntry(Interface):
     """
 
     app_id = schema.ASCIILine(
-        title=_(u'Application id'),
+        title=_(u'Application ID'),
         description=_('app_id_help',
-                      default=u"A unique id for the opt-out group"),
+                      default=u"A unique identifier for the application influenced bt this opt-out"),
         default="",
         missing_value="",
         required=True,
@@ -126,7 +126,7 @@ class IOptOutEntry(Interface):
         title=_(u'Cookies'),
         description=_('cookies_help',
                       default=u"A list of cookies names prefixes.\n"
-                      u"This opt-out will generate a cookie in the form PREFIX-optout for every defined prefix"),
+                      u"This opt-out will generate a cookie in the form PREFIX-optout for every defined prefix."),
         required=True,
         value_type=schema.ASCIILine(),
     )
@@ -197,7 +197,7 @@ class ICookieBannerSettings(Interface):
             title=_(u'Accept policy on every click'),
             description=_('help_accept_on_click',
                           default=u"If checked, any click on links on any page will be interpreted as the "
-                                  u"user accepted the cookie policy (like if they explicitly accepted it)."),
+                                  u"user accepted the cookie policy."),
             required=False,
             default=False,
     )
@@ -205,10 +205,9 @@ class ICookieBannerSettings(Interface):
     cookie_consent_configuration = schema.Tuple(
             title=_(u'Cookie consent configuration'),
             description=_('help_cookie_consent_configuration',
-                          default=u"For every involved language in the site, provide a configuration of the cookie "
-                                  u"consent banner.\n"
+                          default=u"For every involved language, provide a configuration of the cookie consent banner.\n"
                                   u"The first defined policy configuration will be the default ones "
-                                  u"(the ones used when not language specific configuration is found)"),
+                                  u"(the ones used when not language specific configuration is found)."),
             value_type=CookieBannerEntryPersistentObject(ICookieBannerEntry, title=_(u"Cookie consent banner configuration")),
             required=False,
             default=(),
@@ -222,7 +221,7 @@ class IOptOutSettings(Interface):
     optout_configuration = schema.Tuple(
             title=_(u'Opt-out configurations'),
             description=_('help_optout_configuration',
-                          default=u"When the user accepted the general privacy policy he can still accept/decline "
+                          default=u"When the user accepted the general cookie policy he can still accept/decline "
                                   u"a single kind of cookie(s) from a 3rd part application.\n"
                                   u"From this panel you can configure opt-out cookies for those applications.\n"
                                   u"PLEASE NOTE: this product will only handle and generate cookies, is duty of "

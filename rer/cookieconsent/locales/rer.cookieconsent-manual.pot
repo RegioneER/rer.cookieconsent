@@ -20,5 +20,5 @@ msgstr ""
 msgid "RER: Cookies Consent"
 msgstr ""
 
-msgid "A cookies consent solution; used for European Cookie Law by Emilia Romagna Region"
+msgid "A cookie consent solution that can be used for European Cookie Law or when you care about user's privacy"
 msgstr ""
