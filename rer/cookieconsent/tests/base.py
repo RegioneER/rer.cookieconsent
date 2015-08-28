@@ -7,6 +7,7 @@ from plone.registry.interfaces import IRegistry
 from rer.cookieconsent.interfaces import ICookieConsentLayer
 from rer.cookieconsent.controlpanel.interfaces import ICookieConsentSettings
 from rer.cookieconsent.controlpanel.interfaces import OptOutEntry
+from rer.cookieconsent.controlpanel.interfaces import OptOutEntrySubitem
 
 
 class BaseTestCase(unittest.TestCase):
@@ -22,4 +23,5 @@ class BaseTestCase(unittest.TestCase):
 
 
 def optout_generator(app_id, cookies, title=u'', description=u''):
-    return OptOutEntry(app_id=app_id, cookies=cookies, app_title=title, app_description=description)
+    return OptOutEntry(app_id=app_id, cookies=cookies,
+                       texts=(OptOutEntrySubitem(lang=u'en', app_title=title, app_description=description),))
