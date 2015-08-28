@@ -14,6 +14,7 @@ from plone.registry.interfaces import IRegistry
 from zope.component import queryUtility
 from rer.cookieconsent.controlpanel.interfaces import ICookieConsentSettings
 from rer.cookieconsent.controlpanel.interfaces import OptOutEntry
+from rer.cookieconsent.controlpanel.interfaces import OptOutEntrySubitem
 from rer.cookieconsent.controlpanel.interfaces import CookieBannerEntry
 
 
@@ -93,14 +94,29 @@ class CookieConsentXMLAdapter(XMLAdapterBase):
         optoutconf = OptOutEntry()
         for child in node.childNodes:
             tagName, name = self.nodedata(child)
-            if name in ('app-title', 'app-description'):
-                setattr(optoutconf, name.replace('-', '_'),
-                        self._getNodeText(child))
-            elif name=='app-id':
+            if name=='app-id':
                 optoutconf.app_id = self._getNodeText(child).encode('utf-8')
             elif name=='cookies':
                 optoutconf.cookies = tuple(self._getValues(child))
+            elif tagName=='optout_configuration_ui':
+                optoutconf.texts = tuple(self._getOptOutUITexts(child))
         settings.optout_configuration += (optoutconf,)
+
+    def _getOptOutUITexts(self, node):
+        results = []
+        # this must be a sequence of object tags
+        for child in node.childNodes:
+            tagName, name = self.nodedata(child)
+            if not tagName:
+                continue
+            optout_ui_conf = OptOutEntrySubitem()
+            # this must be a sequence of properties with values
+            for child in child.childNodes:
+                tagName, name = self.nodedata(child)
+                if name in ('lang', 'app-title', 'app-description'):
+                    setattr(optout_ui_conf, name.replace('-', '_'), self._getNodeText(child))
+            results.append(optout_ui_conf)
+        return results
 
     def _getValues(self, node):
         """Returns a list of inner <element>s 

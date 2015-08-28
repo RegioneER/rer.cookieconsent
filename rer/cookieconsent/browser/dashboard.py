@@ -72,16 +72,33 @@ class OptOutDashboardView(BrowserView):
         settings = self.settings()
         request = self.request
         cookies = request.cookies
+        portal_state = getMultiAdapter((self.context, request), name=u'plone_portal_state')
+        current_language = portal_state.language()
         self.general_cookie_consent = cookies.get(config.COOKIECONSENT_NAME, False)=='true'
 
         results = []
         for oo_conf in settings.optout_configuration:
             optout = {}
             optout['id'] = oo_conf.app_id
-            optout['title'] = oo_conf.app_title if oo_conf.app_title else self._i18n_alternative(oo_conf.app_id, u'title')
-            raw_i18n_desc = oo_conf.app_description if oo_conf.app_description else self._i18n_alternative(oo_conf.app_id, u'description')
-            optout['description'] = '<br />'.join(raw_i18n_desc.strip().splitlines())
-            
+
+            # i18n
+            if len(oo_conf.texts)==0:
+                optout['title'] = self._i18n_alternative(oo_conf.app_id, u'title')
+                optout['description'] = self._i18n_alternative(oo_conf.app_id, u'description')
+            else:
+                for i, app_text_content in enumerate(oo_conf.texts):
+                    if current_language==app_text_content.lang:
+                        optout['title'] = app_text_content.app_title if app_text_content.app_title else self._i18n_alternative(oo_conf.app_id, u'title')
+                        raw_i18n_desc = app_text_content.app_description if app_text_content.app_description else self._i18n_alternative(oo_conf.app_id, u'description')
+                        optout['description'] = '<br />'.join(raw_i18n_desc.strip().splitlines())
+                        break
+                else:
+                    # no lang found: use the first one as default
+                    default_conf = oo_conf.texts[0]
+                    optout['title'] = default_conf.app_title if default_conf.app_title else self._i18n_alternative(oo_conf.app_id, u'title')
+                    raw_i18n_desc = default_conf.app_description if default_conf.app_description else self._i18n_alternative(oo_conf.app_id, u'description')
+                    optout['description'] = '<br />'.join(raw_i18n_desc.strip().splitlines())
+
             # check cookies: to enable the radio as "deny" we care about at least of one cookie
             negative_cookies = [c for c in oo_conf.cookies \
                     if not cookies.get("%s-optout" % c, None) or cookies["%s-optout" % c]=='false']

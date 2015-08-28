@@ -19,7 +19,7 @@
 
     <browser:page
        name="optout-dashboard"
-       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+       for="plone.app.layout.navigation.interfaces.INavigationRoot"
        class=".dashboard.OptOutDashboardView"
 	   template="dashboard.pt"
        permission="zope2.View"

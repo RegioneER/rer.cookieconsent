@@ -58,6 +58,48 @@ class ICookieBannerEntry(Interface):
     )
 
 
+
+class IOptOutEntrySubitemPersistentObject(Interface):
+    pass
+
+@implementer(IOptOutEntrySubitemPersistentObject)
+class OptOutEntrySubitemPersistentObject(PersistentField, schema.Object):
+    pass
+
+
+class IOptOutEntrySubitem(Interface):
+    """A single translation entry for a OutOut configuration
+    See IOptOutEntry
+    """
+
+    lang = schema.Choice(
+        title=_(u"Language"),
+        defaultFactory=default_language,
+        missing_value=u"",
+        required=True,
+        vocabulary=u"rer.cookieconsent.vocabularies.AvailableLanguages"
+    )
+
+    app_title = schema.TextLine(
+        title=_(u'Application title'),
+        description=_('app_title_help',
+                      default=u"This will be the title used in the opt-out configuration dashboard.\n"),
+        default=u"",
+        missing_value=u"",
+        required=False,
+    )
+
+    app_description = schema.Text(
+        title=_(u'Application description'),
+        description=_('app_description_help',
+                      default=u"A long description that must explain what this opt-out will do if activated.\n"
+                              u"You can also use HTML here."),
+        default=u"",
+        missing_value=u"",
+        required=False,
+    )
+
+
 class IOptOutEntry(Interface):
     """Single entry for an Opt-Out application configuration 
     """
@@ -80,24 +122,19 @@ class IOptOutEntry(Interface):
         value_type=schema.ASCIILine(),
     )
 
-    app_title = schema.TextLine(
-        title=_(u'Application title'),
-        description=_('app_title_help',
-                      default=u"This will be the title used in the opt-out configuration dashboard.\n"
-                              u"If not provided, a translation for \"APPID_optout_title\" will be used"),
-        default=u"",
-        missing_value=u"",
-        required=False,
-    )
-
-    app_description = schema.Text(
-        title=_(u'Application description'),
-        description=_('app_description_help',
-                      default=u"A long description that must explain what this opt-out will do if activated.\n"
-                              u"If not provided, a translation for \"APPID_optout_description\" will be used"),
-        default=u"",
-        missing_value=u"",
-        required=False,
+    texts = schema.Tuple(
+            title=_(u'Opt-out entry titles and descriptions'),
+            description=_('help_optout_texts',
+                          default=u"For every involved language provide title and description that will be used "
+                                  u"for generate an translated opt-out dashboard.\n"
+                                  u"In the case a specific translation is missing, the first in the list will be "
+                                  u"used as default.\n"
+                                  u"If this field is not filler, a translation for \"APPID_optout_title\" "
+                                  u"and \"APPID_optout_description\" will be used."),
+            value_type=OptOutEntrySubitemPersistentObject(IOptOutEntrySubitem, title=_(u"Opt-out title and description")),
+            required=False,
+            default=(),
+            missing_value=(),
     )
 
 
@@ -110,13 +147,19 @@ class CookieBannerEntry(object):
         self.privacy_link_url = privacy_link_url
         self.privacy_link_text = privacy_link_text
 
-
 @implementer(IOptOutEntry)
 class OptOutEntry(object):
 
-    def __init__(self, app_id=u'', cookies=[], app_title=u'', app_description=u''):
+    def __init__(self, app_id=u'', cookies=(), texts=()):
         self.app_id = app_id
         self.cookies = cookies
+        self.texts = texts
+
+@implementer(IOptOutEntrySubitem)
+class OptOutEntrySubitem(object):
+
+    def __init__(self, lang=u'', app_title=u'', app_description=u''):
+        self.lang = lang
         self.app_title = app_title
         self.app_description = app_description
 
@@ -135,7 +178,6 @@ class IOptOutEntryPersistentObject(Interface):
 @implementer(IOptOutEntryPersistentObject)
 class OptOutEntryPersistentObject(PersistentField, schema.Object):
     pass
-
 
 
 class ICookieBannerSettings(Interface):
@@ -183,8 +225,6 @@ class IOptOutSettings(Interface):
     )
 
 
-
-
 class ICookieConsentSettings(ICookieBannerSettings, IOptOutSettings):
     """Settings used in the control panel for cookiecosent: unified panel
     """
@@ -192,4 +232,4 @@ class ICookieConsentSettings(ICookieBannerSettings, IOptOutSettings):
 
 registerFactoryAdapter(ICookieBannerEntry, CookieBannerEntry)
 registerFactoryAdapter(IOptOutEntry, OptOutEntry)
-
+registerFactoryAdapter(IOptOutEntrySubitem, OptOutEntrySubitem)
