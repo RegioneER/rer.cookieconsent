@@ -13,6 +13,49 @@
 
         </style>
     </metal:css>
+
+    <metal:js fill-slot="javascript_head_slot">
+        <script type="text/javascript">
+
+(function($) {
+    $(document).ready(function() {
+        var cookieconsent = getCookieValue('cookieconsent').indexOf('true')>-1 ? true : false,
+            $form = $('#optout-form');
+        
+        // Enable form save
+        $form.find('input[name="Save"]').attr('disabled', null);
+        // Enable cookie consent main radios
+        $('#global-optput input').each(function() {
+            $(this).attr('disabled', null);
+        })
+        
+        // Cookie consent disabled
+        if (!cookieconsent) {
+            $('#reject_cookies').attr('checked', 'checked');
+            $('.optoutRejCommand').attr('checked', 'checked');
+            return;
+        }
+        
+        // Cookie consent enabled
+        $('#accept_cookies').attr('checked', 'checked');
+        $('.customOptOuts input').attr('disabled', null);
+        
+        $('.optoutAction').each(function() {
+            var $this = $(this),
+                optoutCookieVal = getCookieValue($this.attr('data-optout') +  '-optout');
+            if (optoutCookieVal.indexOf('true')>-1) {
+                $(this).find('.optoutRejCommand').attr('checked', 'checked');
+            } else {
+                $(this).find('.optoutGrantCommand').attr('checked', 'checked');
+            }
+
+        });
+        
+    });
+})(jQuery);
+
+        </script>
+    </metal:js>
 </head>
 
 <body>
@@ -46,51 +89,43 @@
                 Global settings for accept or deny cookies in this site.
             </div>
             <div class="optoutAction">
-                <input type="radio" id="accept_cookies" name="accept_cookies" value="true"
-                       tal:attributes="checked python:'checked' if view.general_cookie_consent else False"
-                                       />
+                <input type="radio" id="accept_cookies" name="accept_cookies" value="true" disabled="disabled" />
                 <label for="accept_cookies"
                         i18n:translate="">Grant consent</label><br />
-                <input type="radio" id="reject_cookies" name="accept_cookies" value=""
-                       tal:attributes="checked python:'checked' if not view.general_cookie_consent else False"
-                                       />
+                <input type="radio" id="reject_cookies" name="accept_cookies" value="" disabled="disabled" />
                 <label for="reject_cookies" i18n:translate="">Deny consent</label>
             </div>
 
         </div>
     
-        <optout tal:repeat="optout optouts">
-            <div class="field" tal:attributes="id string:optout-app-${optout/id}">
-                <h2 tal:content="optout/title">
-                    Social Cookies
-                </h2>
-                <div class="optoutDescription" tal:content="structure optout/description">
-                    Explanation of the opt-out
+        <div class="customOptOuts">
+            <optout tal:repeat="optout optouts">
+                <div class="field" tal:attributes="id string:optout-app-${optout/id}">
+                    <h2 tal:content="optout/title">
+                        Social Cookies
+                    </h2>
+                    <div class="optoutDescription" tal:content="structure optout/description">
+                        Explanation of the opt-out
+                    </div>
+                    <div class="optoutAction" tal:attributes="data-optout optout/id">
+                        <input type="radio" id="" name="" value="false" disabled="disabled" class="optoutGrantCommand" 
+                               tal:attributes="id string:${optout/id}_true;
+                                               name string:app_${optout/id};" />
+                        <label tal:attributes="for string:${optout/id}_true"
+                                i18n:translate="">Grant consent</label><br />
+                        <input type="radio" id="" name="" value="true" disabled="disabled" class="optoutRejCommand"
+                               tal:attributes="id string:${optout/id}_false;
+                                               name string:app_${optout/id};" />
+                        <label tal:attributes="for string:${optout/id}_false""
+                               i18n:translate="">Deny consent</label>
+                    </div>
                 </div>
-                <div class="optoutAction">
-                    <input type="radio" id="" name="" value="false"
-                           tal:attributes="id string:${optout/id}_true;
-                                           name string:app_${optout/id};
-                                           disabled python:'disabled' if not view.general_cookie_consent else False;
-                                           checked python:'checked' if not optout['cookie'] else False"
-                                           />
-                    <label tal:attributes="for string:${optout/id}_true"
-                            i18n:translate="">Grant consent</label><br />
-                    <input type="radio" id="" name="" value="true"
-                           tal:attributes="id string:${optout/id}_false;
-                                           name string:app_${optout/id};
-                                           disabled python:'disabled' if not view.general_cookie_consent else False;
-                                           checked python:'checked' if optout['cookie'] else False"
-                                           />
-                    <label tal:attributes="for string:${optout/id}_false"
-                           i18n:translate="">Deny consent</label>
-                </div>
-            </div>
-        </optout>
+            </optout>
+        </div>
     
         <input type="hidden" name="form.submitted" value="1" />
         <input type="submit" name="Save" value="Save" class="context"
-               i18n:domain="plone" i18n:attributes="value" />
+               i18n:domain="plone" i18n:attributes="value" disabled="disabled" />
     </form>
 
     </metal:content-core>
