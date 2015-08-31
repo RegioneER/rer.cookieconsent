@@ -12,6 +12,7 @@ from zope.i18n import translate
 from DateTime import DateTime
 from zope.component import getMultiAdapter
 from plone.memoize.view import memoize
+from rer.cookieconsent.utils import setCookie
 
 
 class OptOutDashboardView(BrowserView):
@@ -51,9 +52,7 @@ class OptOutDashboardView(BrowserView):
         portal_state = getMultiAdapter((self.context, self.request),
                                        name=u'plone_portal_state')
         site = portal_state.portal()
-        self.request.response.setCookie(name, value,
-                                        path='/'.join(site.getPhysicalPath()),
-                                        expires=self.nextYear.rfc822())
+        setCookie(self.request.response, name, value, expires=self.nextYear.rfc822())
 
 
     def _i18n_alternative(self, app_id, id):

@@ -9,6 +9,7 @@ from rer.cookieconsent.controlpanel.interfaces import ICookieConsentSettings
 from rer.cookieconsent.interfaces import ICookieConsentLayer
 from zope.component import queryUtility
 from zope.component.hooks import getSite
+from rer.cookieconsent.utils import setCookie
 
 
 #@adapter(IPubSuccess)
@@ -37,7 +38,6 @@ def optout_all(request, value, update=False):
     For all of the opt-out cookies, set the value
     This will not change values for cookies already set until update=True is provided
     """
-    site = getSite()
     registry = queryUtility(IRegistry)
     settings = registry.forInterface(ICookieConsentSettings)
     for oo_conf in settings.optout_configuration:
@@ -46,7 +46,4 @@ def optout_all(request, value, update=False):
             if cookiename in request.cookies and not update:
                 continue
             nextYear = DateTime() + 365
-            request.response.setCookie(cookiename, value,
-                                       path='/'.join(site.getPhysicalPath()),
-                                       expires=nextYear.rfc822(),
-                                       http_only=True)
+            setCookie(request.response, cookiename, value, expires=nextYear.rfc822())

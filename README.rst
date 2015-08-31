@@ -39,7 +39,6 @@ how those cookies are processed.
 Third-party party add-ons must take care of this.
 
 A cookie is always in the form ``NAME-optout`` and can have a value equals to ``true`` or ``false``.
-They are also HttpOnly.
 
 Know add-ons which support opt-out cookies
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
