@@ -28,7 +28,7 @@ class JSONConfigurationAdapter(object):
         data_settings['actual_url'] = self.request['ACTUAL_URL']
         data_settings['here_url'] = self.context.absolute_url()
         data_settings['dashboard_url'] = "%s/@@optout-dashboard" % site.absolute_url()
-        data_settings['portal_path'] = '/'.join(site.getPhysicalPath())
+        data_settings['portal_path'] = site.absolute_url_path()
         return data_settings
 
 
