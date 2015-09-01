@@ -31,8 +31,9 @@ def send_initial_cookies_values(event):
     if config.COOKIECONSENT_NAME in request.response.cookies:
         return
     # TODO: evaluate if move this list in a Plone registry field (performance?)
-    if urlparse.urlparse(request.URL).netloc in config.DOMAIN_WHITELIST:
-        return
+    for subdomain in config.DOMAIN_WHITELIST:
+        if urlparse.urlparse(request.URL).netloc.find(subdomain)>-1:
+            return
 
     optout_all(request, 'true')
 
