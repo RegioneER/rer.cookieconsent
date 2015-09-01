@@ -45,11 +45,19 @@ Know add-ons which support opt-out cookies
 
 Here follow a list of common add-ons that can be used with opt-out cookies:
 
-`sc.social.like`_ (version >= 2.3)
-   A cookie named ``social-optout`` valued to ``true`` will automatically trigger the
+`sc.social.like`_ (version >= 2.3) - server side
+   A cookie named ``social-optout`` valued to ``true`` will automatically activate the
    "*Do not track users*" option for the current user. 
-other
-   TODO
+`collective.analyticspanel`_ (version >= 0.5.0) - server side
+   If properly configure, a cookie named ``analytics-optout`` valued to ``true`` will not load the analytics code.
+   Although the add-on works server side, you are free to provide an analytics code that conditionally load when
+   this cookie is present working totally on client side.
+`Products.Maps`_ (version >= 0.4) - client side
+   If a cookie named ``maps-optout`` is provided valued to ``true`` the Google map is not directly displayed in the page.
+`redturtle.video`_ (version >= 1.2.0) - server side
+   Not directly RedTurtle Video, but extensions like `collective.rtvideo.youtube`_ (>=0.4.0)
+   and `collective.rtvideo.vimeo`_ (>=0.3.0) will not display the video directly if a ``video-optout`` cookie valued
+   ``true`` is provided
 
 Configuration
 =============
@@ -59,7 +67,7 @@ Add-on configuration can be reached from the "*Cookie consent configuration*" en
 Cookie consent banner
 ---------------------
 
-In the banner configurartion you can:
+In the banner configuration you can:
 
 * activate an auto-grant-on-click feature. With this every click on whatever link in the site is interpreted
   as accepting the Privacy Policy  
@@ -88,8 +96,8 @@ You must provide:
 .. image:: https://raw.githubusercontent.com/PloneGov-IT/rer.cookieconsent/master/docs/images/rer.cookieconsent-0.1.0-03.png
    :alt: Opt-out dashboard - configuration
 
-Troubleshooting
-===============
+Issues/Troubleshooting
+======================
 
 Varnish
 -------
@@ -101,6 +109,10 @@ Control panel
 
 TODO
 
+HttpOnly
+--------
+
+TODO
 
 Credits
 =======
@@ -125,3 +137,7 @@ This product was developed by RedTurtle Technology team.
 .. _`LinguaPlone`: https://pypi.python.org/pypi/Products.LinguaPlone
 .. _`Silktide Cookie Consent JavaScript plugin`: https://silktide.com/tools/cookie-consent/
 .. _`sc.social.like`: https://pypi.python.org/pypi/sc.social.like/
+.. _`collective.analyticspanel`: https://pypi.python.org/pypi/collective.analyticspanel
+.. _`redturtle.video`: https://plone.org/products/redturtle.video
+.. _`collective.rtvideo.youtube`: https://pypi.python.org/pypi/collective.rtvideo.youtube
+.. _`collective.rtvideo.vimeo`: https://pypi.python.org/pypi/collective.rtvideo.vimeo
