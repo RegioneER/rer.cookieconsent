@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import urlparse
 from DateTime import DateTime
 #from ZPublisher.interfaces import IPubBeforeCommit, IPubSuccess
 from plone.browserlayer.utils import registered_layers
@@ -10,13 +11,13 @@ from rer.cookieconsent.interfaces import ICookieConsentLayer
 from zope.component import queryUtility
 from zope.component.hooks import getSite
 from rer.cookieconsent.utils import setCookie
+from rer.cookieconsent import config
 
 
 #@adapter(IPubSuccess)
 def send_initial_cookies_values(event):
-    """ If the COOKIECONSENT_NAME if not present at all, use not choose if
-    accept cookies or not.
-    In that case we automatically send all of the optput cookies not present.
+    """ If the COOKIECONSENT_NAME if not present at all, user not choosen yet if accept cookies or not.
+    In that case we automatically send all of the opt-put cookies not present.
     """
 
     # Checks to limit subscribers calls
@@ -28,6 +29,9 @@ def send_initial_cookies_values(event):
 
     request = event.request
     if config.COOKIECONSENT_NAME in request.response.cookies:
+        return
+    # TODO: evaluate if move this list in a Plone registry field (performance?)
+    if urlparse.urlparse(request.URL).netloc in config.DOMAIN_WHITELIST:
         return
 
     optout_all(request, 'true')

@@ -113,6 +113,7 @@
                                                name string:app_${optout/id};" />
                         <label tal:attributes="for string:${optout/id}_true"
                                 i18n:translate="">Grant consent</label><br />
+
                         <input type="radio" id="" name="" value="true" disabled="disabled" class="optoutRejCommand"
                                tal:attributes="id string:${optout/id}_false;
                                                name string:app_${optout/id};" />

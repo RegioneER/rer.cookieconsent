@@ -41,7 +41,7 @@ class OptOutDashboardView(BrowserView):
             optout_all(request, 'true', update=True)
             self.setOneYearCookie(config.COOKIECONSENT_NAME, 'false')
             return
-        # Cookie consent given: let's save also optout cookies
+        # Cookies consent given: let's save also opt-out cookies
         self.setOneYearCookie(config.COOKIECONSENT_NAME, 'true')
         for optout in self.settings().optout_configuration:
             value = 'true' if form.get('app_%s' % optout.app_id)=='true' else 'false'
