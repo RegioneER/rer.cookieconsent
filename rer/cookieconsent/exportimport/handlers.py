@@ -98,6 +98,8 @@ class CookieConsentXMLAdapter(XMLAdapterBase):
                 optoutconf.app_id = self._getNodeText(child).encode('utf-8')
             elif name=='cookies':
                 optoutconf.cookies = tuple(self._getValues(child))
+            elif name=='default-value':
+                optoutconf.default_value = self._getNodeText(child).encode('utf-8').lower()
             elif tagName=='optout_configuration_ui':
                 optoutconf.texts = tuple(self._getOptOutUITexts(child))
         settings.optout_configuration += (optoutconf,)

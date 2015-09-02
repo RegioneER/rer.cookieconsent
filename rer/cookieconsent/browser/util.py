@@ -6,7 +6,9 @@ from zope.publisher.interfaces.browser import IBrowserView
 
 
 class ResetOptoutView(BrowserView):
-    """Set all of the opt-out cookies to false"""
+    """Set all of the opt-out cookies to false
+    Redirect to "current" page after that.
+    """
 
     def __call__(self, *args, **kwargs):
         optout_all(self.request, 'false', update=True)

@@ -33,19 +33,18 @@
         if (!cookieconsent) {
             $('#reject_cookies').attr('checked', 'checked');
             $('.optoutRejCommand').attr('checked', 'checked');
-            return;
+        } else {
+            // Cookie consent enabled
+            $('#accept_cookies').attr('checked', 'checked');
+            $('.customOptOuts input').attr('disabled', null);
         }
-        
-        // Cookie consent enabled
-        $('#accept_cookies').attr('checked', 'checked');
-        $('.customOptOuts input').attr('disabled', null);
         
         $('.optoutAction').each(function() {
             var $this = $(this),
                 optoutCookieVal = getCookieValue($this.attr('data-optout') +  '-optout');
             if (optoutCookieVal.indexOf('true')>-1) {
                 $(this).find('.optoutRejCommand').attr('checked', 'checked');
-            } else {
+            } else if (optoutCookieVal.indexOf('false')>-1) {
                 $(this).find('.optoutGrantCommand').attr('checked', 'checked');
             }
 

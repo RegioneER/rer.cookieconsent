@@ -35,10 +35,10 @@ def send_initial_cookies_values(event):
         if urlparse.urlparse(request.URL).netloc.find(subdomain)>-1:
             return
 
-    optout_all(request, 'true')
+    optout_all(request)
 
     
-def optout_all(request, value, update=False):
+def optout_all(request, value=None, update=False):
     """
     For all of the opt-out cookies, set the value
     This will not change values for cookies already set until update=True is provided
@@ -51,4 +51,5 @@ def optout_all(request, value, update=False):
             if cookiename in request.cookies and not update:
                 continue
             nextYear = DateTime() + 365
+            value = value if value else oo_conf.default_value
             setCookie(request.response, cookiename, value, expires=nextYear.rfc822())

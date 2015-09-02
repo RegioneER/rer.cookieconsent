@@ -7,6 +7,12 @@ from zope.interface import implementer
 from plone.registry.field import PersistentField
 from z3c.form.object import registerFactoryAdapter
 from zope.component.hooks import getSite
+from zope.schema.vocabulary import SimpleVocabulary
+
+
+trueFalseVocabulary = SimpleVocabulary.fromItems((
+    (u"true", "true"),
+    (u"false", "false")))
 
 
 def default_language():
@@ -126,9 +132,19 @@ class IOptOutEntry(Interface):
         title=_(u'Cookies'),
         description=_('cookies_help',
                       default=u"A list of cookies names prefixes.\n"
-                      u"This opt-out will generate a cookie in the form PREFIX-optout for every defined prefix."),
+                              u"This opt-out will generate a cookie in the form PREFIX-optout for every defined prefix."),
         required=True,
         value_type=schema.ASCIILine(),
+    )
+
+    default_value = schema.Choice(
+        title=_(u'Cookie(s) initial value'),
+        description=_('default_value_help',
+                      default=u"When a user access for the first time the site, all of the opt-out cookies are set.\n"
+                              u"You can select the value of the opt-out cookies for this category."),
+        required=True,
+        default="true",
+        vocabulary=trueFalseVocabulary
     )
 
     texts = schema.Tuple(
@@ -159,9 +175,10 @@ class CookieBannerEntry(object):
 @implementer(IOptOutEntry)
 class OptOutEntry(object):
 
-    def __init__(self, app_id=u'', cookies=(), texts=()):
+    def __init__(self, app_id=u'', cookies=(), default_value=u"true", texts=()):
         self.app_id = app_id
         self.cookies = cookies
+        self.default_value = default_value
         self.texts = texts
 
 @implementer(IOptOutEntrySubitem)
