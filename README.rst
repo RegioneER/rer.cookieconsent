@@ -138,6 +138,7 @@ This product was developed by RedTurtle Technology team.
 .. _`Silktide Cookie Consent JavaScript plugin`: https://silktide.com/tools/cookie-consent/
 .. _`sc.social.like`: https://pypi.python.org/pypi/sc.social.like/
 .. _`collective.analyticspanel`: https://pypi.python.org/pypi/collective.analyticspanel
+.. _`Products.Maps`: https://pypi.python.org/pypi/Products.Maps
 .. _`redturtle.video`: https://plone.org/products/redturtle.video
 .. _`collective.rtvideo.youtube`: https://pypi.python.org/pypi/collective.rtvideo.youtube
 .. _`collective.rtvideo.vimeo`: https://pypi.python.org/pypi/collective.rtvideo.vimeo
