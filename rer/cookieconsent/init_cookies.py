@@ -20,25 +20,24 @@ def send_initial_cookies_values(event):
     In that case we automatically send all of the opt-put cookies not present.
     """
 
+    request = event.request
+
     # Checks to limit subscribers calls
-    if ICookieConsentLayer not in registered_layers():
+    if config.COOKIECONSENT_NAME in request.response.cookies or \
+            ICookieConsentLayer not in registered_layers():
         return
     site = getSite()
     if site==None:
         return
 
-    request = event.request
-    if config.COOKIECONSENT_NAME in request.response.cookies:
-        return
     # TODO: evaluate if move this list in a Plone registry field (performance?)
     for subdomain in config.DOMAIN_WHITELIST:
         if urlparse.urlparse(request.URL).netloc.find(subdomain)>-1:
             return
-
-    optout_all(request)
+    optout_all(request, writeRequest=True)
 
     
-def optout_all(request, value=None, update=False):
+def optout_all(request, value=None, update=False, writeRequest=False):
     """
     For all of the opt-out cookies, set the value
     This will not change values for cookies already set until update=True is provided
@@ -51,5 +50,7 @@ def optout_all(request, value=None, update=False):
             if cookiename in request.cookies and not update:
                 continue
             nextYear = DateTime() + 365
-            value = value if value else oo_conf.default_value
-            setCookie(request.response, cookiename, value, expires=nextYear.rfc822())
+            cookievalue = value if value else oo_conf.default_value
+            setCookie(request.response, cookiename, cookievalue, expires=nextYear.rfc822())
+            if writeRequest:
+                request.cookies[cookiename] = cookievalue

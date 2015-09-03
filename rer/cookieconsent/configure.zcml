@@ -27,7 +27,7 @@
       /-->
   <subscriber
       handler=".init_cookies.send_initial_cookies_values"
-      for="ZPublisher.interfaces.IPubSuccess"
+      for="ZPublisher.interfaces.IPubAfterTraversal"
       />
 
   <utility
