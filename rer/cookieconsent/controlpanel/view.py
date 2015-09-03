@@ -67,6 +67,26 @@ class CookieConsentSettingsEditForm(controlpanel.RegistryEditForm):
 #            widgets['privacy_link_text'].style = u'width: 100%'
 
 
+    def update(self):
+        super(CookieConsentSettingsEditForm, self).update()
+        for group in self.groups:
+            widgets = group.widgets
+            if 'cookie_consent_configuration' in widgets:
+                for main_widget in widgets['cookie_consent_configuration'].widgets:
+                    widgets = main_widget.subform.widgets
+                    fix_widget_style(widgets['text'])
+                    widgets['privacy_link_url'].style=u"width: 100%"
+                    widgets['privacy_link_text'].size=40
+                    widgets['dashboard_link_text'].size=40
+            if 'optout_configuration' in widgets:
+                for main_widget in widgets['optout_configuration'].widgets:
+                    widgets = main_widget.subform.widgets
+                    for subwidget in widgets['texts'].widgets:
+                        widgets = subwidget.subform.widgets
+                        fix_widget_style(widgets['app_description'])
+                        widgets['app_title'].style=u"width: 100%"
+
+
 class CookieConsentSettingsControlPanel(controlpanel.ControlPanelFormWrapper):
     """Analytics settings control panel.
     """

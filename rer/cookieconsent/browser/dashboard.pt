@@ -116,7 +116,7 @@
                         <input type="radio" id="" name="" value="true" disabled="disabled" class="optoutRejCommand"
                                tal:attributes="id string:${optout/id}_false;
                                                name string:app_${optout/id};" />
-                        <label tal:attributes="for string:${optout/id}_false""
+                        <label tal:attributes="for string:${optout/id}_false"
                                i18n:translate="">Deny consent</label>
                     </div>
                 </div>

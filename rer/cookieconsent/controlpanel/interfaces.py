@@ -141,7 +141,7 @@ class IOptOutEntry(Interface):
         title=_(u'Cookie(s) initial value'),
         description=_('default_value_help',
                       default=u"When a user access for the first time the site, all of the opt-out cookies are set.\n"
-                              u"You can select the value of the opt-out cookies for this category."),
+                              u"You must select the default value for those cookies."),
         required=True,
         default="true",
         vocabulary=trueFalseVocabulary
