@@ -3,6 +3,7 @@
 from collective.jsconfiguration.interfaces import IJSONDataProvider
 from collective.regjsonify.interfaces import IJSONifier
 from plone.registry.interfaces import IRegistry
+from rer.cookieconsent.utils import get_url_to_dashboard
 from rer.cookieconsent.controlpanel.interfaces import ICookieConsentSettings
 from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 from zope.component import queryUtility
@@ -27,7 +28,7 @@ class JSONConfigurationAdapter(object):
         data_settings = IJSONifier(settings).json()
         data_settings['actual_url'] = self.request['ACTUAL_URL']
         data_settings['here_url'] = self.context.absolute_url()
-        data_settings['dashboard_url'] = "%s/@@optout-dashboard" % site.absolute_url()
+        data_settings['dashboard_url'] = get_url_to_dashboard()
         data_settings['portal_path'] = site.absolute_url_path()
         return data_settings
 

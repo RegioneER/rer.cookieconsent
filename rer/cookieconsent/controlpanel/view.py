@@ -69,8 +69,8 @@ class CookieConsentSettingsEditForm(controlpanel.RegistryEditForm):
 
     def update(self):
         super(CookieConsentSettingsEditForm, self).update()
-        for group in self.groups:
-            widgets = group.widgets
+        for fieldset in self.groups:
+            widgets = fieldset.widgets
             if 'cookie_consent_configuration' in widgets:
                 for main_widget in widgets['cookie_consent_configuration'].widgets:
                     widgets = main_widget.subform.widgets
