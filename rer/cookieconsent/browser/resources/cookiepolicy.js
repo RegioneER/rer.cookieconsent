@@ -379,7 +379,7 @@
           // Prevent accepting policy if we want to read the policy or access the dashboard
           if (this.tagName.toLowerCase()==='a') {
             if (this.href.indexOf(cookie_consent_configuration.privacy_link_url) === 0 ||
-                this.href.indexOf(cookie_consent_configuration.dashboard_url) === 0) {
+                this.href.indexOf(bannerConfiguration.dashboard_url) === 0) {
               return;
             }
           }
