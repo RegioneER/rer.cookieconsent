@@ -39,7 +39,15 @@
                 <property name="app-title">Cookie di condivisione con i social network</property>
                 <property name="app-description">
                     Cookie di terze parti legati all'uso di plug-in di social network per la condivisione dei contenuti di questo sito.
-                    Senza questi cookie non si vede quante condivisioni di un contenuto sono state fatte dagli altri utenti. Nel caso di utilizzo del plugin i social network possono tracciare le attività dell'utente.
+					Senza questi cookie non si vede quante condivisioni di un contenuto sono state fatte dagli altri utenti.
+                </property>
+            </object>
+            <object>
+                <property name="lang">en</property>
+                <property name="app-title">Cookies shared with social networks</property>
+                <property name="app-description">
+                    Third-party cookies joined with social network's plugins for sharing content of such websites.
+					Such cookies are mandatory to determine how many times content has been shared by other users.
                 </property>
             </object>
         </optout_configuration_ui>
@@ -57,7 +65,15 @@
                 <property name="app-title">Cookie di Google Maps</property>
                 <property name="app-description">
                     Cookie di terze parti legati all'uso di plug-in per la visualizzazione di mappe realizzate con Google Maps.
-                    Senza questi cookie non si verranno visualizzate tali mappe e la relativa posizione dei contenuti georeferenziati.
+					Senza questi cookie non verranno visualizzate tali mappe e la relativa posizione dei contenuti georeferenziati. 
+                </property>
+            </object>
+            <object>
+                <property name="lang">en</property>
+                <property name="app-title">Cookies of Google Maps</property>
+                <property name="app-description">
+                    Third-party cookies joined with Google Maps plugins.
+					Such cookies are mandatory for map's rendering and georeferencing of items therein. 
                 </property>
             </object>
         </optout_configuration_ui>
@@ -78,6 +94,14 @@
                     Senza questi cookie non cambia nulla nell'utilizzo del sito ma si impedisce al gestore di analizzare le prestazioni e l'esperienza di navigazione dell'utente.
                 </property>
             </object>
+            <object>
+                <property name="lang">en</property>
+                <property name="app-title">Analytics cookies</property>
+                <property name="app-description">
+					As for technical cookies, analytics cookies are exclusively used by webmasters for statistical and monitoring purposes, and do not allow for user identification.
+					Such cookies do not modify the general website usage, but are needed by webmasters to analyze the website performances and to evaluate the user experience.
+                </property>
+            </object>
         </optout_configuration_ui>
     </object>
     <!-- this configuration is related to some redturtle.video extensions -->
@@ -96,6 +120,14 @@
                     Senza questi cookie non possiamo mostrare i video all'interno del sito; ove possibile il video è sostituito da un link alla piattaforma esterna ove risiede. 
                 </property>
             </object>
+            <object>
+                <property name="lang">en</property>
+                <property name="app-title">Cookies of web video platforms</property>
+                <property name="app-description">
+                    Third-party cookies joined with web video platforms (i.e. Youtube).
+					Such cookies are mandatory for playing videos within websites; if possible, videos are substituted by links to the external web video platform they belong to. 
+                </property>
+            </object>
         </optout_configuration_ui>
     </object>
     <!-- this configuration requires rer.consentembed -->
@@ -112,6 +144,14 @@
                 <property name="app-description">
                     Cookie di terze parti legati all'inclusione di codice proveniente da siti esterni (es. inclusione di news da Facebook o Twitter).
                     Senza questi cookie non verrà visualizzato il contenuto proveniente dal sito esterno.
+                </property>
+            </object>
+            <object>
+                <property name="lang">en</property>
+                <property name="app-title">Embed cookies from external websites</property>
+                <property name="app-description">
+                    Third-party cookies joined with code of external websites (i.e. news inclusion from Facebook or Twitter).
+					Such cookies are mandatory to visualize content from external websites.
                 </property>
             </object>
         </optout_configuration_ui>
