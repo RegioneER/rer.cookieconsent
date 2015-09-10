@@ -77,7 +77,7 @@
     <metal:content-core define-macro="content-core">
 
     <form id="optout-form" method="post" action=""
-          tal:attributes="action string:${portal_url}/@@${view/__name__}"
+          tal:attributes="action string:${context/absolute_url}/@@${view/__name__}"
           tal:define="optouts view/optouts;">
     
         <div class="field" id="global-optput">
