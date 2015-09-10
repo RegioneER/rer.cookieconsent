@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-09-03 08:13+0000\n"
+"POT-Creation-Date: 2015-09-10 10:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,19 +75,19 @@ msgstr ""
 msgid "Cookies"
 msgstr ""
 
+#: ../browser/dashboard.pt:85
+msgid "Cookies general consent"
+msgstr ""
+
 #: ../browser/dashboard.pt:64
 msgid "Cookies preferences for this site"
 msgstr ""
 
-#: ../browser/dashboard.pt:95
+#: ../browser/dashboard.pt:96
 msgid "Deny consent"
 msgstr ""
 
-#: ../browser/dashboard.pt:84
-msgid "General cookies consent"
-msgstr ""
-
-#: ../browser/dashboard.pt:92
+#: ../browser/dashboard.pt:93
 msgid "Grant consent"
 msgstr ""
 
@@ -168,8 +168,8 @@ msgstr ""
 msgid "default_value_help"
 msgstr ""
 
-#. Default: "Global settings for accept or deny cookies in this site."
-#: ../browser/dashboard.pt:87
+#. Default: "Global settings for accepting or denying cookies in this site."
+#: ../browser/dashboard.pt:88
 msgid "global_optput_description"
 msgstr ""
 
@@ -193,7 +193,7 @@ msgstr ""
 msgid "help_optout_texts"
 msgstr ""
 
-#. Default: "Technical cookies don't requires user consent because they are needed for make the site works or to privide requested services. For other types of cookies you can choose from the list below which accept or reject."
+#. Default: "Technical cookies do not generally require user consent because they are needed to operate the website or to provide requested services. For other types of cookies, you can select which ones to accept or reject from the list below."
 #: ../browser/dashboard.pt:70
 msgid "optout_dashboard_description"
 msgstr ""

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-09-03 08:13+0000\n"
+"POT-Creation-Date: 2015-09-10 10:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,19 +76,19 @@ msgstr "Valore iniziale del/dei cookie"
 msgid "Cookies"
 msgstr "Cookie"
 
+#: ../browser/dashboard.pt:85
+msgid "Cookies general consent"
+msgstr "Consenso generale ai cookie"
+
 #: ../browser/dashboard.pt:64
 msgid "Cookies preferences for this site"
 msgstr "Preferenze per i cookie nel sito"
 
-#: ../browser/dashboard.pt:95
+#: ../browser/dashboard.pt:96
 msgid "Deny consent"
 msgstr "Nega il consenso"
 
-#: ../browser/dashboard.pt:84
-msgid "General cookies consent"
-msgstr "Consenso generale ai cookie"
-
-#: ../browser/dashboard.pt:92
+#: ../browser/dashboard.pt:93
 msgid "Grant consent"
 msgstr "Dai il consenso"
 
@@ -175,8 +175,8 @@ msgstr ""
 "Quando un utente accede per la prima volta al sito, tutti i cookie di opt-out vengono inviati.\n"
 "Devi selezionare il valore di default per questi cookie."
 
-#. Default: "Global settings for accept or deny cookies in this site."
-#: ../browser/dashboard.pt:87
+#. Default: "Global settings for accepting or denying cookies in this site."
+#: ../browser/dashboard.pt:88
 msgid "global_optput_description"
 msgstr "Impostazione globale per accettare o rifiutare i cookie da questo sito."
 
@@ -208,7 +208,7 @@ msgstr ""
 "Nel caso una specifica traduzione sarà assente la prima definita in questa lista sarà usata come predefinita.\n"
 "Se questo campo non è compilato, sarà infine usata una traduzione per \"APPID_optout_title\" e \"APPID_optout_description\"."
 
-#. Default: "Technical cookies don't requires user consent because they are needed for make the site works or to privide requested services. For other types of cookies you can choose from the list below which accept or reject."
+#. Default: "Technical cookies do not generally require user consent because they are needed to operate the website or to provide requested services. For other types of cookies, you can select which ones to accept or reject from the list below."
 #: ../browser/dashboard.pt:70
 msgid "optout_dashboard_description"
 msgstr ""
