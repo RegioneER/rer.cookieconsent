@@ -68,8 +68,9 @@
 
 <metal:content-description fill-slot="content-description">
     <div class="documentDescription" i18n:translate="optout_dashboard_description">
-        Technical cookies don't requires user consent because they are needed for make the site works or to privide requested services.
-        For other types of cookies you can choose from the list below which accept or reject.
+        Technical cookies do not generally require user consent because they are needed to operate the website
+		or to provide requested services.
+		For other types of cookies, you can select which ones to accept or reject from the list below.
     </div>
 </metal:content-description>
 
@@ -77,15 +78,15 @@
     <metal:content-core define-macro="content-core">
 
     <form id="optout-form" method="post" action=""
-          tal:attributes="action string:${portal_url}/@@${view/__name__}"
+          tal:attributes="action string:${context/absolute_url}/@@${view/__name__}"
           tal:define="optouts view/optouts;">
     
         <div class="field" id="global-optput">
             <h2 i18n:translate="">
-                General cookies consent
+                Cookies general consent
             </h2>
             <div class="optoutDescription" i18n:translate="global_optput_description">
-                Global settings for accept or deny cookies in this site.
+                Global settings for accepting or denying cookies in this site.
             </div>
             <div class="optoutAction">
                 <input type="radio" id="accept_cookies" name="accept_cookies" value="true" disabled="disabled" />

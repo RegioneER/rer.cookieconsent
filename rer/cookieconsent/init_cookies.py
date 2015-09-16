@@ -11,7 +11,6 @@ from rer.cookieconsent.interfaces import ICookieConsentLayer
 from zope.component import queryUtility
 from zope.component.hooks import getSite
 from rer.cookieconsent.utils import setCookie
-from rer.cookieconsent import config
 
 
 #@adapter(IPubSuccess)

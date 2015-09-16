@@ -5,8 +5,7 @@ from collective.regjsonify.interfaces import IJSONFieldDumper
 from collective.regjsonify.fields import Object
 from zope.component.hooks import getSite
 from zope.interface import implementer
-from plone.app.layout.navigation.interfaces import INavigationRoot
-from zope.component import getMultiAdapter
+from rer.cookieconsent.utils import get_url_to_dashboard
 
 
 URL_MODEL = '<a href="{0}">{1}</a>{2}'
@@ -30,17 +29,6 @@ class CookieBannerSettingsAdapter(Object):
     def __init__(self, field):
         self.field = field
 
-    def _get_url_to_dashboard(self):
-        """URL to dashboard depends on i18n settings in the site
-        """
-        site = getSite()
-        portal_state = getMultiAdapter((site, site.REQUEST), name=u'plone_portal_state')
-        current_language = portal_state.language()
-        lang_root_folder = getattr(site, current_language, None)
-        if lang_root_folder and INavigationRoot.providedBy(lang_root_folder):
-            return "%s/@@optout-dashboard" % lang_root_folder.absolute_url()
-        return "%s/@@optout-dashboard" % site.absolute_url()
-
     def data(self, record):
         result = super(CookieBannerSettingsAdapter, self).data(record)
         new_text = result['text']
@@ -52,7 +40,7 @@ class CookieBannerSettingsAdapter(Object):
             privacy_link_url = site.absolute_url() + privacy_link_url
         privacy_link_text = result['privacy_link_text'] or privacy_link_url
 
-        dashboard_link_url = self._get_url_to_dashboard()
+        dashboard_link_url = get_url_to_dashboard()
         dashboard_link_text = result['dashboard_link_text'] or dashboard_link_url
 
         # privacy link

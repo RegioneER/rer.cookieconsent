@@ -49,11 +49,7 @@ class OptOutDashboardView(BrowserView):
                 self.setOneYearCookie("%s-optout" % cookie, value)
 
     def setOneYearCookie(self, name, value):
-        portal_state = getMultiAdapter((self.context, self.request),
-                                       name=u'plone_portal_state')
-        site = portal_state.portal()
         setCookie(self.request.response, name, value, expires=self.nextYear.rfc822())
-
 
     def _i18n_alternative(self, app_id, id):
         oo_i18n_id = u"%s_optout_%s" % (app_id, id)

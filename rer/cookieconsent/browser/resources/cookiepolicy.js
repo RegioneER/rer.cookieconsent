@@ -37,6 +37,7 @@
 
   // rer.cookieconsent structures, inited after DOM load below
   var bannerConfiguration = null,
+      bannerRawConf,
       currentLanguage = null,
       $labelsElement = null
       cookie_consent_configuration = null;
@@ -332,12 +333,13 @@
     }
   };
 
-  var init;
   var initialized = false;
-  (init = function () {
+  var init = function () {
     if (!initialized && document.readyState == 'interactive') {
-    
-      bannerConfiguration = $.parseJSON($('#' + BANNER_CONF_ID).text());
+
+      // IE is not able to read script content as simple text
+      bannerRawConf = $('#' + BANNER_CONF_ID).text() || $('#' + BANNER_CONF_ID).html();
+      bannerConfiguration = $.parseJSON(bannerRawConf);
 
       if (!bannerConfiguration || bannerConfiguration.cookie_consent_configuration.length===0) {
         // No configuration provided: no output
@@ -377,7 +379,7 @@
           // Prevent accepting policy if we want to read the policy or access the dashboard
           if (this.tagName.toLowerCase()==='a') {
             if (this.href.indexOf(cookie_consent_configuration.privacy_link_url) === 0 ||
-                this.href.indexOf(cookie_consent_configuration.dashboard_url) === 0) {
+                this.href.indexOf(bannerConfiguration.dashboard_url) === 0) {
               return;
             }
           }
@@ -391,8 +393,8 @@
       cookieconsent.init();
       initalized = true;
     }
-  })();
+  };
 
-  Util.addEventListener(document, 'readystatechange', init);
+  $(document).ready(init);
 
 })(jQuery);
