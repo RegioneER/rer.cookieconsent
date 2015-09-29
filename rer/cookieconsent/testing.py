@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
-
-from zope.configuration import xmlconfig
-
-from plone.testing import z2
-
+from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
+from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
+from plone.app.testing import applyProfile
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import IntegrationTesting
-from plone.app.testing import FunctionalTesting
-from plone.app.testing import applyProfile
+from plone.testing import z2
+from zope.configuration import xmlconfig
 
 
 class CookieConsentPanel(PloneSandboxLayer):
@@ -34,10 +33,18 @@ class CookieConsentPanel(PloneSandboxLayer):
 
 
 COOKIECONSENT_FIXTURE = CookieConsentPanel()
-COOKIECONSENT_INTEGRATION_TESTING = \
-    IntegrationTesting(bases=(COOKIECONSENT_FIXTURE, ),
-                       name="CookieConsent:Integration")
-COOKIECONSENT_FUNCTIONAL_TESTING = \
-    FunctionalTesting(bases=(COOKIECONSENT_FIXTURE, ),
-                       name="CookieConsent:Functional")
+COOKIECONSENT_INTEGRATION_TESTING = IntegrationTesting(
+    bases=(COOKIECONSENT_FIXTURE, ),
+    name="CookieConsent:Integration",
+)
+COOKIECONSENT_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(COOKIECONSENT_FIXTURE, ),
+    name="CookieConsent:Functional",
+)
 
+COOKIECONSENT_ROBOT_TESTING = FunctionalTesting(
+    bases=(
+        COOKIECONSENT_FIXTURE,
+        REMOTE_LIBRARY_BUNDLE_FIXTURE,
+        z2.ZSERVER_FIXTURE),
+    name="CookieConsent:Robot")

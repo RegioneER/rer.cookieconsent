@@ -3,7 +3,9 @@ import os
 
 version = '0.1.1.dev0'
 
-tests_require = ['plone.app.testing']
+tests_require = [
+    'plone.app.testing>=4.2.5',
+    'plone.app.robotframework']
 
 setup(name='rer.cookieconsent',
       version=version,
@@ -33,7 +35,7 @@ setup(name='rer.cookieconsent',
           'setuptools',
           'collective.jsconfiguration>=0.1.1',
           'collective.regjsonify>=0.2.0',
-          # -*- Extra requirements: -*-
+          'plone.api'
       ],
       entry_points="""
       [z3c.autoinclude.plugin]
