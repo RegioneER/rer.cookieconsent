@@ -6,6 +6,7 @@ from collective.regjsonify.fields import Object
 from zope.component.hooks import getSite
 from zope.interface import implementer
 from rer.cookieconsent.utils import get_url_to_dashboard
+from plone import api
 
 
 URL_MODEL = '<a href="{0}">{1}</a>{2}'
@@ -21,11 +22,11 @@ pattern_dashboard_link_text = re.compile(r'(\$dashboard_link_text)(\W|$)')
 class CookieBannerSettingsAdapter(Object):
     """
     collective.regjsonify implementation for ICookieBannerEntry
-    
+
     Like basic Object adapter but we need to perfomr some string interpolation.
-    Also, some server-side only resources are removed. 
+    Also, some server-side only resources are removed.
     """
-    
+
     def __init__(self, field):
         self.field = field
 
@@ -60,18 +61,26 @@ class CookieBannerSettingsAdapter(Object):
         new_text = pattern_dashboard_link_text.sub(dashboard_link_text + r'\2', new_text)
 
         new_text = new_text.strip().replace("\n", "<br />\n")
-        result['text'] = new_text
+        result['text'] = self.cleanHTML(new_text)
         result['privacy_link_url'] = privacy_link_url
         del result['privacy_link_text']
         del result['dashboard_link_text']
         return result
 
+    def cleanHTML(self, text):
+        """
+        clean text in the given data, so the user can't insert dangerous
+        html (for example cross-site scripting)
+        """
+        pt = api.portal.get_tool('portal_transforms')
+        safe_text = pt.convert('safe_html', text)
+        return safe_text.getData()
 
 @implementer(IJSONFieldDumper)
 class OptOutSettingsAdapter(Object):
     """
     collective.regjsonify implementation for ICookieBannerSettingsAdapter.
-    Do not return anything 
+    Do not return anything
     """
 
     def __init__(self, field):

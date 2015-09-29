@@ -6,6 +6,7 @@ from rer.cookieconsent import messageFactory as _
 from rer.cookieconsent.controlpanel.interfaces import ICookieConsentSettings
 from rer.cookieconsent.controlpanel.interfaces import ICookieBannerSettings
 from rer.cookieconsent.controlpanel.interfaces import IOptOutSettings
+from plone import api
 from plone.app.registry.browser import controlpanel
 from Products.CMFPlone import PloneMessageFactory as pmf
 from z3c.form import button
@@ -39,12 +40,27 @@ class CookieConsentSettingsEditForm(controlpanel.RegistryEditForm):
     label = _(u"Cookie consent configuration")
     description = _(u"Configuration of the cookie consent in the site")
 
+    def cleanHTML(self, data):
+        """
+        clean text in the given data, so the user can't insert dangerous
+        html (for example cross-site scripting)
+        """
+        pt = api.portal.get_tool('portal_transforms')
+        for configuration in data['cookie_consent_configuration']:
+            text = configuration.text
+            if not text:
+                continue
+            safe_text = pt.convert('safe_html', text)
+            configuration.text = safe_text.getData()
+
+
     @button.buttonAndHandler(pmf('Save'), name='save')
     def handleSave(self, action):
         data, errors = self.extractData()
         if errors:
             self.status = self.formErrorsMessage
             return
+        self.cleanHTML(data)
         self.applyChanges(data)
         IStatusMessage(self.request).addStatusMessage(_(u"Changes saved"),
                                                       "info")
@@ -92,4 +108,3 @@ class CookieConsentSettingsControlPanel(controlpanel.ControlPanelFormWrapper):
     """
     form = CookieConsentSettingsEditForm
     #index = ViewPageTemplateFile('controlpanel.pt')
-
