@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1.1 (unreleased)
+0.1.1 (2015-10-14)
 ------------------
 
 - Add safe_html filter for text configuration
