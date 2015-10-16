@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1.2 (unreleased)
+0.1.2 (2015-10-16)
 ------------------
 
 - cookieconsent cookie now expires in 10 years
