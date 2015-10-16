@@ -1,6 +1,6 @@
 /**
  * http://silktide.com/cookieconsent
- * 
+ *
  * BBB: we added also a "reject" button feature here, but it's disabled.
  * BBB: note we are also using jQuery here. That's a mixed way to do things
  */
@@ -111,8 +111,13 @@
 
     setCookie: function (name, value, expirydays) {
       var exdate = new Date();
-      expirydays = expirydays || 365;
-      exdate.setDate(exdate.getDate() + expirydays);
+      if (expirydays === undefined) {
+        //if expirydays isn't givent, expire the cookie in 10 years
+        exdate.setFullYear(exdate.getFullYear() + 10);
+      }
+      else {
+        exdate.setDate(exdate.getDate() + expirydays);
+      }
       document.cookie = name + '=' + value + '; expires=' + exdate.toUTCString() + '; path='
         + (bannerConfiguration.portal_path ? bannerConfiguration.portal_path : '/');
     },
