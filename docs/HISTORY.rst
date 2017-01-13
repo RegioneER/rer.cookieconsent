@@ -4,7 +4,7 @@ Changelog
 0.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- corrected typo in LC_MESSAGES for the italian language [arsenico13]
 
 
 0.1.2 (2015-10-16)

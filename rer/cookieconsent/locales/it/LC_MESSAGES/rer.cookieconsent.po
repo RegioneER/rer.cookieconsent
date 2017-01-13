@@ -60,7 +60,7 @@ msgstr "Configurazione del banner per il consenso ai cookie"
 
 #: ../controlpanel/interfaces.py:36
 msgid "Cookie consent banner content"
-msgstr "Contento del banner del consenso ai cookie"
+msgstr "Contenuto del banner del consenso ai cookie"
 
 #: ../controlpanel/interfaces.py:223
 #: ../controlpanel/view.py:39
@@ -238,4 +238,3 @@ msgstr ""
 "Usa l'identificatore \"$privacy_link\" per inserire un link HTML all'Informativa sulla Privacy (vedi sotto).\n"
 "Se vuoi il pieno controllo sull'HTML generato puoi usare gli identificatori \"$privacy_link_url\" (URL del link) e \"$privacy_link_text\" (testo del link).\n"
 "Allo stesso modo puoi usare \"$dashboard_link\", \"$dashboard_link_url\" e \"$dashboard_text\" per fornire il link al cruscotto di opt-out"
-
