@@ -233,7 +233,7 @@ msgstr ""
 #: ../controlpanel/interfaces.py:37
 msgid "text_help"
 msgstr ""
-"Fornisci il testo da inserire nel banne per il consenso dei cookie.\n"
+"Fornisci il testo da inserire nel banner per il consenso dei cookie.\n"
 "Puoi usare HTML ma puoi ancora evitarlo.\n"
 "Usa l'identificatore \"$privacy_link\" per inserire un link HTML all'Informativa sulla Privacy (vedi sotto).\n"
 "Se vuoi il pieno controllo sull'HTML generato puoi usare gli identificatori \"$privacy_link_url\" (URL del link) e \"$privacy_link_text\" (testo del link).\n"
