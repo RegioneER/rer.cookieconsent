@@ -76,7 +76,7 @@ msgid "Cookies"
 msgstr ""
 
 #: ../browser/dashboard.pt:85
-msgid "Cookies general consent"
+msgid "General cookies consent"
 msgstr ""
 
 #: ../browser/dashboard.pt:64
@@ -212,4 +212,3 @@ msgstr ""
 #: ../controlpanel/interfaces.py:37
 msgid "text_help"
 msgstr ""
-

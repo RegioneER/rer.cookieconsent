@@ -77,7 +77,7 @@ msgid "Cookies"
 msgstr "Cookie"
 
 #: ../browser/dashboard.pt:85
-msgid "Cookies general consent"
+msgid "General cookies consent"
 msgstr "Consenso generale ai cookie"
 
 #: ../browser/dashboard.pt:64
@@ -114,7 +114,7 @@ msgstr "Cruscotto di opt-out"
 
 #: ../controlpanel/interfaces.py:151
 msgid "Opt-out entry titles and descriptions"
-msgstr "Titoli e descriptioni delle voci di opt-out"
+msgstr "Titoli e descrizioni delle voci di opt-out"
 
 #: ../controlpanel/interfaces.py:159
 msgid "Opt-out title and description"
@@ -137,13 +137,13 @@ msgstr "Testo del link al cruscotto di opt-out"
 
 #: ../controlpanel/interfaces.py:51
 msgid "URL of the Privacy Policy"
-msgstr "URL all'Informatica sulla Privacy"
+msgstr "URL all'Informativa sulla Privacy"
 
 #. Default: "A long description that must explain what this opt-out will do if activated.\nYou can also use HTML here."
 #: ../controlpanel/interfaces.py:109
 msgid "app_description_help"
 msgstr ""
-"Una descrizione compèleta che deve spiegare che cosa accade se questa voce di opt-out viene attivata.\n"
+"Una descrizione completa che deve spiegare che cosa accade se questa voce di opt-out viene attivata.\n"
 "Puoi usare HTML."
 
 #. Default: "A unique identifier for the application influenced bt this opt-out"
@@ -154,7 +154,7 @@ msgstr "Un identificatore univoco per l'applicazione influenzata da questo opt-o
 #. Default: "This will be the title used in the opt-out configuration dashboard"
 #: ../controlpanel/interfaces.py:100
 msgid "app_title_help"
-msgstr "Questo sarà il titolo usato del cruscotto di opt-out per questa applicazione"
+msgstr "Questo sarà il titolo usato dal cruscotto di opt-out per questa applicazione"
 
 #. Default: "A list of cookies names prefixes.\nThis opt-out will generate a cookie in the form PREFIX-optout for every defined prefix."
 #: ../controlpanel/interfaces.py:133
@@ -196,7 +196,7 @@ msgstr ""
 #: ../controlpanel/interfaces.py:240
 msgid "help_optout_configuration"
 msgstr ""
-"Quanto l'utente accetta la informatica sui cookie generale, può ancora accettare/rifiutare un singolo tipo di cookie da applicazione di terze parti.\n"
+"Quando l'utente accetta l\'informativa sui cookie generale, può ancora accettare/rifiutare un singolo tipo di cookie da applicazione di terze parti.\n"
 "Da questo pannello puoi configurare i cookie di opt-out per queste applicazioni.\n"
 "NOTA BENE: questo prodotto si occupa solo dei cookie, è compito degli altri prodotti usare questi cookie nella maniera opportuna."
 
@@ -204,7 +204,7 @@ msgstr ""
 #: ../controlpanel/interfaces.py:152
 msgid "help_optout_texts"
 msgstr ""
-"Per ogni lingua coinvolta fornisci il titolo e la descrizone che saranno usati per generare un cruscotto di opt-out tradotto.\n"
+"Per ogni lingua coinvolta fornisci il titolo e la descrizione che saranno usati per generare un cruscotto di opt-out tradotto.\n"
 "Nel caso una specifica traduzione sarà assente la prima definita in questa lista sarà usata come predefinita.\n"
 "Se questo campo non è compilato, sarà infine usata una traduzione per \"APPID_optout_title\" e \"APPID_optout_description\"."
 
@@ -219,7 +219,7 @@ msgstr ""
 #: ../controlpanel/interfaces.py:61
 msgid "privacy_link_text_help"
 msgstr ""
-"Il testo da usare quando sarà necessario generare un URL definito nel campo \"URL all'Informatica sulla Privacy\".\n"
+"Il testo da usare quando sarà necessario generare un URL definito nel campo \"URL all'Informativa sulla Privacy\".\n"
 "Se non definito, verrà utilizzato l'URL completo."
 
 #. Default: "An URL, or a absolute path, to a page where user can read the full Privacy Policy of your site.\nExamples: \"http://externalsite.com/privacy.html\", \"/internal/document\"."
@@ -237,4 +237,4 @@ msgstr ""
 "Puoi usare HTML ma puoi ancora evitarlo.\n"
 "Usa l'identificatore \"$privacy_link\" per inserire un link HTML all'Informativa sulla Privacy (vedi sotto).\n"
 "Se vuoi il pieno controllo sull'HTML generato puoi usare gli identificatori \"$privacy_link_url\" (URL del link) e \"$privacy_link_text\" (testo del link).\n"
-"Allo stesso modo puoi usare \"$dashboard_link\", \"$dashboard_link_url\" e \"$dashboard_text\" per fornire il link al cruscotto di opt-out"
+"Allo stesso modo puoi usare \"$dashboard_link\", \"$dashboard_link_url\" e \"$dashboard_link_text\" per fornire il link al cruscotto di opt-out"

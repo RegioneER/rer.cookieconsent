@@ -21,14 +21,14 @@
     $(document).ready(function() {
         var cookieconsent = getCookieValue('cookieconsent').indexOf('true')>-1 ? true : false,
             $form = $('#optout-form');
-        
+
         // Enable form save
         $form.find('input[name="Save"]').attr('disabled', null);
         // Enable cookie consent main radios
         $('#global-optput input').each(function() {
             $(this).attr('disabled', null);
         })
-        
+
         // Cookie consent disabled
         if (!cookieconsent) {
             $('#reject_cookies').attr('checked', 'checked');
@@ -38,7 +38,7 @@
             $('#accept_cookies').attr('checked', 'checked');
             $('.customOptOuts input').attr('disabled', null);
         }
-        
+
         $('.optoutAction').each(function() {
             var $this = $(this),
                 optoutCookieVal = getCookieValue($this.attr('data-optout') +  '-optout');
@@ -49,7 +49,7 @@
             }
 
         });
-        
+
     });
 })(jQuery);
 
@@ -80,10 +80,10 @@
     <form id="optout-form" method="post" action=""
           tal:attributes="action string:${context/absolute_url}/@@${view/__name__}"
           tal:define="optouts view/optouts;">
-    
+
         <div class="field" id="global-optput">
             <h2 i18n:translate="">
-                Cookies general consent
+                General cookies consent
             </h2>
             <div class="optoutDescription" i18n:translate="global_optput_description">
                 Global settings for accepting or denying cookies in this site.
@@ -97,7 +97,7 @@
             </div>
 
         </div>
-    
+
         <div class="customOptOuts">
             <optout tal:repeat="optout optouts">
                 <div class="field" tal:attributes="id string:optout-app-${optout/id}">
@@ -108,7 +108,7 @@
                         Explanation of the opt-out
                     </div>
                     <div class="optoutAction" tal:attributes="data-optout optout/id">
-                        <input type="radio" id="" name="" value="false" disabled="disabled" class="optoutGrantCommand" 
+                        <input type="radio" id="" name="" value="false" disabled="disabled" class="optoutGrantCommand"
                                tal:attributes="id string:${optout/id}_true;
                                                name string:app_${optout/id};" />
                         <label tal:attributes="for string:${optout/id}_true"
@@ -123,7 +123,7 @@
                 </div>
             </optout>
         </div>
-    
+
         <input type="hidden" name="form.submitted" value="1" />
         <input type="submit" name="Save" value="Save" class="context"
                i18n:domain="plone" i18n:attributes="value" disabled="disabled" />
@@ -134,4 +134,3 @@
 
 </body>
 </html>
-
