@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-
-from rer.cookieconsent import messageFactory as _
-from zope import schema
-from zope.interface import Interface
-from zope.interface import implementer
+from plone import api
 from plone.registry.field import PersistentField
 from z3c.form.object import registerFactoryAdapter
 from zope.component.hooks import getSite
+from zope.interface import implementer
+from zope.interface import Interface
+from zope import schema
 from zope.schema.vocabulary import SimpleVocabulary
+
+from rer.cookieconsent import messageFactory as _
 
 
 trueFalseVocabulary = SimpleVocabulary.fromItems((
@@ -17,7 +18,12 @@ trueFalseVocabulary = SimpleVocabulary.fromItems((
 
 def default_language():
     site = getSite()
-    return site.portal_languages.getDefaultLanguage().decode('utf-8')
+    try:
+        return site.portal_languages.getDefaultLanguage().decode('utf-8')
+    except AttributeError:
+        # PLONE 5
+        language_tool = api.portal.get_tool('portal_languages')
+        return language_tool.getDefaultLanguage()
 
 
 class ICookieBannerEntry(Interface):
@@ -73,9 +79,9 @@ class ICookieBannerEntry(Interface):
     )
 
 
-
 class IOptOutEntrySubitemPersistentObject(Interface):
     pass
+
 
 @implementer(IOptOutEntrySubitemPersistentObject)
 class OptOutEntrySubitemPersistentObject(PersistentField, schema.Object):
@@ -148,18 +154,19 @@ class IOptOutEntry(Interface):
     )
 
     texts = schema.Tuple(
-            title=_(u'Opt-out entry titles and descriptions'),
-            description=_('help_optout_texts',
-                          default=u"For every involved language provide title and description that will be used "
-                                  u"for generate an translated opt-out dashboard.\n"
-                                  u"In the case a specific translation is missing, the first in the list will be "
-                                  u"used as default.\n"
-                                  u"If this field is not filler, a translation for \"APPID_optout_title\" "
-                                  u"and \"APPID_optout_description\" will be used."),
-            value_type=OptOutEntrySubitemPersistentObject(IOptOutEntrySubitem, title=_(u"Opt-out title and description")),
-            required=False,
-            default=(),
-            missing_value=(),
+        title=_(u'Opt-out entry titles and descriptions'),
+        description=_('help_optout_texts',
+                      default=u"For every involved language provide title and description that will be used "
+                      u"for generate an translated opt-out dashboard.\n"
+                      u"In the case a specific translation is missing, the first in the list will be "
+                      u"used as default.\n"
+                      u"If this field is not filler, a translation for \"APPID_optout_title\" "
+                      u"and \"APPID_optout_description\" will be used."),
+        value_type=OptOutEntrySubitemPersistentObject(
+            IOptOutEntrySubitem, title=_(u"Opt-out title and description")),
+        required=False,
+        default=(),
+        missing_value=(),
     )
 
 
@@ -172,6 +179,7 @@ class CookieBannerEntry(object):
         self.privacy_link_url = privacy_link_url
         self.privacy_link_text = privacy_link_text
 
+
 @implementer(IOptOutEntry)
 class OptOutEntry(object):
 
@@ -180,6 +188,7 @@ class OptOutEntry(object):
         self.cookies = cookies
         self.default_value = default_value
         self.texts = texts
+
 
 @implementer(IOptOutEntrySubitem)
 class OptOutEntrySubitem(object):
@@ -193,6 +202,7 @@ class OptOutEntrySubitem(object):
 class ICookieBannerEntryPersistentObject(Interface):
     pass
 
+
 @implementer(ICookieBannerEntryPersistentObject)
 class CookieBannerEntryPersistentObject(PersistentField, schema.Object):
     pass
@@ -200,6 +210,7 @@ class CookieBannerEntryPersistentObject(PersistentField, schema.Object):
 
 class IOptOutEntryPersistentObject(Interface):
     pass
+
 
 @implementer(IOptOutEntryPersistentObject)
 class OptOutEntryPersistentObject(PersistentField, schema.Object):
@@ -211,24 +222,25 @@ class ICookieBannerSettings(Interface):
     """
 
     accept_on_click = schema.Bool(
-            title=_(u'Accept policy on every click'),
-            description=_('help_accept_on_click',
-                          default=u"If checked, any click on links on any page will be interpreted as the "
-                                  u"user accepted the cookie policy."),
-            required=False,
-            default=False,
+        title=_(u'Accept policy on every click'),
+        description=_('help_accept_on_click',
+                      default=u"If checked, any click on links on any page will be interpreted as the "
+                      u"user accepted the cookie policy."),
+        required=False,
+        default=False,
     )
 
     cookie_consent_configuration = schema.Tuple(
-            title=_(u'Cookie consent configuration'),
-            description=_('help_cookie_consent_configuration',
-                          default=u"For every involved language, provide a configuration of the cookie consent banner.\n"
-                                  u"The first defined policy configuration will be the default ones "
-                                  u"(the ones used when not language specific configuration is found)."),
-            value_type=CookieBannerEntryPersistentObject(ICookieBannerEntry, title=_(u"Cookie consent banner configuration")),
-            required=False,
-            default=(),
-            missing_value=(),
+        title=_(u'Cookie consent configuration'),
+        description=_('help_cookie_consent_configuration',
+                      default=u"For every involved language, provide a configuration of the cookie consent banner.\n"
+                      u"The first defined policy configuration will be the default ones "
+                      u"(the ones used when not language specific configuration is found)."),
+        value_type=CookieBannerEntryPersistentObject(
+            ICookieBannerEntry, title=_(u"Cookie consent banner configuration")),
+        required=False,
+        default=(),
+        missing_value=(),
     )
 
 
@@ -236,17 +248,18 @@ class IOptOutSettings(Interface):
     """Settings for the Optout"""
 
     optout_configuration = schema.Tuple(
-            title=_(u'Opt-out configurations'),
-            description=_('help_optout_configuration',
-                          default=u"When the user accepted the general cookie policy he can still accept/decline "
-                                  u"a single kind of cookie(s) from a 3rd part application.\n"
-                                  u"From this panel you can configure opt-out cookies for those applications.\n"
-                                  u"PLEASE NOTE: this product will only handle and generate cookies, is duty of "
-                                  u"others products to use those cookies in the correct manner."),
-            value_type=OptOutEntryPersistentObject(IOptOutEntry, title=_(u"Opt-out configuration")),
-            required=False,
-            default=(),
-            missing_value=(),
+        title=_(u'Opt-out configurations'),
+        description=_('help_optout_configuration',
+                      default=u"When the user accepted the general cookie policy he can still accept/decline "
+                      u"a single kind of cookie(s) from a 3rd part application.\n"
+                      u"From this panel you can configure opt-out cookies for those applications.\n"
+                      u"PLEASE NOTE: this product will only handle and generate cookies, is duty of "
+                      u"others products to use those cookies in the correct manner."),
+        value_type=OptOutEntryPersistentObject(
+            IOptOutEntry, title=_(u"Opt-out configuration")),
+        required=False,
+        default=(),
+        missing_value=(),
     )
 
 

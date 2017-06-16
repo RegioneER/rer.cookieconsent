@@ -11,8 +11,6 @@
   if (window.hasCookieConsent) return;
   window.hasCookieConsent = true;
 
-  var portal_url = window.portal_url || '';
-
   /*
    Constants
    */
@@ -374,8 +372,8 @@
           : 'javascript:void(0)',
         reject_url: 'javascript:void(0)',
         learnMore: 'Privacy policy',
-        link: portal_url + '/privacy',
-        theme: portal_url + '/++resource++rer.cookieconsent.resources/cookiepolicy.css'
+        link: bannerConfiguration.portal_url + '/privacy',
+        theme: bannerConfiguration.portal_url + '/++resource++rer.cookieconsent.resources/cookiepolicy.css'
       };
 
       // Events for automatic policy acceptance

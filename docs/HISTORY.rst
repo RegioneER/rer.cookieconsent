@@ -4,6 +4,7 @@ Changelog
 0.1.3 (unreleased)
 ------------------
 
+- plone5 compatibility [mamico]
 - corrected typo in LC_MESSAGES for the italian language [arsenico13]
 
 

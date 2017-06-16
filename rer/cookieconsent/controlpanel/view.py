@@ -51,7 +51,7 @@ class CookieConsentSettingsEditForm(controlpanel.RegistryEditForm):
             if not text:
                 continue
             safe_text = pt.convert('safe_html', text)
-            configuration.text = safe_text.getData()
+            configuration.text = safe_text.getData().decode('utf-8')
 
 
     @button.buttonAndHandler(pmf('Save'), name='save')

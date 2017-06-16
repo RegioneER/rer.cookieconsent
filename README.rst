@@ -114,6 +114,12 @@ HttpOnly
 
 TODO
 
+JavaScript
+----------
+
+TODO: separate cookieconsent library from custom javascript for better upgrade
+TODO: remove collective.jsconfiguration dependency moving custom config to a viewlet
+
 Credits
 =======
 

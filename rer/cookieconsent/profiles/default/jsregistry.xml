@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
 
+
    <javascript id="++resource++rer.cookieconsent.resources/cookiepolicy.js"
                cacheable="True"
                compression="safe"
@@ -12,7 +13,7 @@
                cacheable="True"
                compression="full"
                cookable="True"
-               enabled="True"
+               enabled="False"
                inline="False" />
 
 </object>

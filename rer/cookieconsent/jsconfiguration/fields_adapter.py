@@ -36,7 +36,7 @@ class CookieBannerSettingsAdapter(Object):
 
         # privacy_link_url can be a document path, not an URL
         privacy_link_url = result['privacy_link_url']
-        if privacy_link_url.startswith('/'):
+        if privacy_link_url and privacy_link_url.startswith('/'):
             site = getSite()
             privacy_link_url = site.absolute_url() + privacy_link_url
         privacy_link_text = result['privacy_link_text'] or privacy_link_url

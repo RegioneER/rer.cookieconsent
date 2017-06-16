@@ -30,6 +30,7 @@ class JSONConfigurationAdapter(object):
         data_settings['here_url'] = self.context.absolute_url()
         data_settings['dashboard_url'] = get_url_to_dashboard()
         data_settings['portal_path'] = site.absolute_url_path()
+        data_settings['portal_url'] = site.absolute_url()
         return data_settings
 
 
