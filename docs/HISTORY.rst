@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1.3 (unreleased)
+0.1.3 (2017-07-03)
 ------------------
 
 - plone5 compatibility [mamico]
