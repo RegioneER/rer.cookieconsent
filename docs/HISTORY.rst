@@ -6,7 +6,10 @@ Changelog
 
 - Move resources to bundle
   [cekk]
-
+- Fix code-quality
+  [cekk]
+- Add travis config
+  [cekk]
 
 0.1.3 (2017-07-03)
 ------------------

@@ -14,9 +14,11 @@ class ResetOptoutView(BrowserView):
         optout_all(self.request, 'false', update=True)
         context = self.context
         if IBrowserView.providedBy(context):
-            # This context is also a view, we called something like /foo/bar/@@view/@@reset-optout
-            here_url = "%s/@@%s" % (context.context.absolute_url(),
-                                    context.__name__)
+            # This context is also a view, we called something like
+            # /foo/bar/@@view/@@reset-optout
+            here_url = '{0}/@@{1}'.format(
+                context.context.absolute_url(),
+                context.__name__)
         else:
             here_url = context.absolute_url()
         back_to = self.request.form.get('came_from') or here_url

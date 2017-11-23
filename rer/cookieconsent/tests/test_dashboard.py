@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 
+from DateTime import DateTime
+from rer.cookieconsent import config
 from rer.cookieconsent.testing import COOKIECONSENT_INTEGRATION_TESTING
 from rer.cookieconsent.tests.base import BaseTestCase
 from rer.cookieconsent.tests.base import optout_generator
 from zope.component import getMultiAdapter
-from rer.cookieconsent import config
-from DateTime import DateTime
 
 
 class DashboardTestCase(BaseTestCase):
     """Tests cookies behaviors"""
-    
+
     layer = COOKIECONSENT_INTEGRATION_TESTING
-    
+
     def setUp(self):
         self.markRequestWithLayer()
         self.populateConfig()
@@ -23,9 +23,9 @@ class DashboardTestCase(BaseTestCase):
     def populateConfig(self):
         settings = self.getSettings()
         settings.optout_configuration = (
-                                         optout_generator('foo', ('foo1', 'foo2')),
-                                         optout_generator('bar', ('bar',))
-                                         )
+            optout_generator('foo', ('foo1', 'foo2')),
+            optout_generator('bar', ('bar',))
+        )
 
     def test_basic_behavior(self):
         portal = self.layer['portal']
@@ -34,7 +34,7 @@ class DashboardTestCase(BaseTestCase):
         request.form['accept_cookies'] = 'true'
         request.form['app_foo'] = 'true'
         request.form['app_bar'] = 'false'
-        view = getMultiAdapter((portal, request), name=u"optout-dashboard")
+        view = getMultiAdapter((portal, request), name=u'optout-dashboard')
         view()
         cookies = request.response.cookies
         self.assertTrue(config.COOKIECONSENT_NAME in cookies)
@@ -50,7 +50,7 @@ class DashboardTestCase(BaseTestCase):
         portal = self.layer['portal']
         request = self.layer['request']
         request.form['form.submitted'] = 1
-        view = getMultiAdapter((portal, request), name=u"optout-dashboard")
+        view = getMultiAdapter((portal, request), name=u'optout-dashboard')
         view()
         cookies = request.response.cookies
         self.assertTrue(config.COOKIECONSENT_NAME in cookies)
@@ -61,4 +61,3 @@ class DashboardTestCase(BaseTestCase):
         self.assertEqual(cookies['foo1-optout']['value'], 'true')
         self.assertTrue('bar-optout' in cookies)
         self.assertEqual(cookies['bar-optout']['value'], 'true')
-

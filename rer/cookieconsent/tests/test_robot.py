@@ -2,6 +2,7 @@
 from plone.app.testing import ROBOT_TEST_LEVEL
 from plone.testing import layered
 from rer.cookieconsent.testing import COOKIECONSENT_ROBOT_TESTING
+
 import os
 import robotsuite
 import unittest
