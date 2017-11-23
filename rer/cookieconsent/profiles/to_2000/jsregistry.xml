@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+
+
+   <javascript id="++resource++rer.cookieconsent.resources/cookiepolicy.js"
+               remove="True"/>
+
+   <javascript id="++resource++rer.cookieconsent.resources/utils.js"
+               remove="True" />
+
+</object>
