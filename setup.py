@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1.4.dev0'
+version = '0.2.0.dev0'
 
 tests_require = [
     'plone.app.testing>=4.2.5',
@@ -9,16 +9,16 @@ tests_require = [
 
 setup(name='rer.cookieconsent',
       version=version,
-      description="A cookies consent Plone solution; used for European Cookie Law by Emilia Romagna Region",
-      long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.rst")).read(),
+      description='A cookies consent Plone solution; used for European Cookie Law by Emilia Romagna Region',  # noqa
+      long_description=open('README.rst').read() + '\n' +
+                       open(os.path.join('docs', 'HISTORY.rst')).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
-        "Framework :: Plone",
-        "Framework :: Plone :: 4.2",
-        "Framework :: Plone :: 4.3",
-        "Programming Language :: Python",
+        'Framework :: Plone',
+        'Framework :: Plone :: 4.2',
+        'Framework :: Plone :: 4.3',
+        'Programming Language :: Python',
         ],
       keywords='plone plonegov cookie-consent cookie-law cookie privacy',
       author='RedTurtle Technology',

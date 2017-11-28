@@ -20,6 +20,7 @@
   <include package=".controlpanel" />
   <include package=".jsconfiguration" />
   <include package=".exportimport" />
+  <include package=".upgrades" />
 
   <!--adapter
       factory=".init_cookies.send_initial_cookies_values"
@@ -40,6 +41,13 @@
       title="RER: Cookies Consent"
       directory="profiles/default"
       description="A cookie consent solution that can be used for European Cookie Law or when you care about user's privacy"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  <genericsetup:registerProfile
+      name="to_2000"
+      title="RER: Cookies Consent upgrade to 2000"
+      directory="profiles/to_2000"
+      description=""
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <genericsetup:registerProfile

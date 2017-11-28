@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
 from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
@@ -7,7 +6,6 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
-from zope.configuration import xmlconfig
 
 
 class CookieConsentPanel(PloneSandboxLayer):
@@ -18,28 +16,24 @@ class CookieConsentPanel(PloneSandboxLayer):
         # Load ZCML for this package
         import rer.cookieconsent
         import collective.regjsonify
-        xmlconfig.file('configure.zcml',
-                       collective.regjsonify,
-                       context=configurationContext)
+        self.loadZCML(package=collective.regjsonify)
         # xmlconfig registration below only needed for Plone 4.2 compatibility
-        xmlconfig.file('configure.zcml',
-                       rer.cookieconsent,
-                       context=configurationContext)
+        self.loadZCML(package=rer.cookieconsent)
         z2.installProduct(app, 'rer.cookieconsent')
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'rer.cookieconsent:default')
-        #quickInstallProduct(portal, 'rer.cookieconsent')
+        # quickInstallProduct(portal, 'rer.cookieconsent')
 
 
 COOKIECONSENT_FIXTURE = CookieConsentPanel()
 COOKIECONSENT_INTEGRATION_TESTING = IntegrationTesting(
     bases=(COOKIECONSENT_FIXTURE, ),
-    name="CookieConsent:Integration",
+    name='CookieConsent:Integration',
 )
 COOKIECONSENT_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(COOKIECONSENT_FIXTURE, ),
-    name="CookieConsent:Functional",
+    name='CookieConsent:Functional',
 )
 
 COOKIECONSENT_ROBOT_TESTING = FunctionalTesting(

@@ -1,8 +1,8 @@
-# -*- extra stuff goes here -*-
+# -*- coding: utf-8 -*-
+from zope.i18nmessageid import MessageFactory
 
 import logging
 
-from zope.i18nmessageid import MessageFactory
 
 messageFactory = MessageFactory('rer.cookieconsent')
 logger = logging.getLogger('rer.cookieconsent')

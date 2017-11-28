@@ -2,6 +2,7 @@
 *.egg-info
 *.mo
 .installed.cfg
+.Python
 .vscode/
 bin/
 develop-eggs/

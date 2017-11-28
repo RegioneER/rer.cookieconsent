@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="rer.cookieconsent">
 
     <browser:resourceDirectory
@@ -10,6 +11,11 @@
 		layer="..interfaces.ICookieConsentLayer"
         />
 
+    <plone:static
+      directory="resources"
+      type="plone"
+      name="rer.cookieconsent"
+      />
     <browser:page
        name="reset-optout"
        for="*"
