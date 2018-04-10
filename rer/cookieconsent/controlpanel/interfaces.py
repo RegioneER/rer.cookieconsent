@@ -104,7 +104,7 @@ class IOptOutEntrySubitem(Interface):
     app_title = schema.TextLine(
         title=_(u'Application name'),
         description=_('app_title_help',
-                      default=u'This will be the title used in the opt-out configuration dashboard'),  # noqa
+                      default=u'This will be the title used in the opt-out configuration dashboard.'),  # noqa
         default=u'',
         missing_value=u'',
         required=False,

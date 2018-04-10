@@ -10,6 +10,8 @@ Changelog
   [cekk]
 - Add travis config
   [cekk]
+- German translations
+  [tomgross]
 
 0.1.3 (2017-07-03)
 ------------------

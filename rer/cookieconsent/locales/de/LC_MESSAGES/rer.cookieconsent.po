@@ -3,226 +3,229 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: 2018-04-10 14:34+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2018-04-11 01:34+1000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rer.cookieconsent\n"
+"X-Is-Fallback-For: it-ch it-it\n"
+"Language: de\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: ../configure.zcml:45
 msgid "A cookie consent solution that can be used for European Cookie Law or when you care about user's privacy"
-msgstr ""
+msgstr "Eine Implementierung des Cookie Consent für Plone, um das europäische Cookie Gesetz zu erfüllen."
 
 #: ../controlpanel/interfaces.py:229
 msgid "Accept policy on every click"
-msgstr ""
+msgstr "Datenschutzbestimmungen bei beliebigem Klick akzeptieren"
 
 #: ../controlpanel/interfaces.py:129
 msgid "Application ID"
-msgstr ""
+msgstr "ID der Applikation"
 
 #: ../controlpanel/interfaces.py:114
 msgid "Application description"
-msgstr ""
+msgstr "Beschreibung der App"
 
 #: ../controlpanel/interfaces.py:105
 msgid "Application name"
-msgstr ""
+msgstr "Name der Applikation"
 
 #: ../controlpanel/view.py:71
 msgid "Changes cancelled"
-msgstr ""
+msgstr "Abgebrochen"
 
-#: ../browser/dashboard.py:31
-#: ../controlpanel/view.py:65
+#: ../browser/dashboard.py:31 ../controlpanel/view.py:65
 msgid "Changes saved"
-msgstr ""
+msgstr "Änderungen gespeichert"
 
 #: ../controlpanel/view.py:41
 msgid "Configuration of the cookie consent in the site"
-msgstr ""
+msgstr "Konfiguration der Cookie-Einstellungen für diese Website"
 
 #: ../controlpanel/view.py:24
 msgid "Cookie consent banner"
-msgstr ""
+msgstr "Cookie Consent Banner"
 
 #: ../controlpanel/interfaces.py:244
 msgid "Cookie consent banner configuration"
-msgstr ""
+msgstr "Konfiguration des Cookie Consent Banners"
 
 #: ../controlpanel/interfaces.py:41
 msgid "Cookie consent banner content"
-msgstr ""
+msgstr "Inhalt des Cookie Consent Banners"
 
-#: ../controlpanel/interfaces.py:238
-#: ../controlpanel/view.py:40
+#: ../controlpanel/interfaces.py:238 ../controlpanel/view.py:40
 #: ../profiles/default/controlpanel.xml
 msgid "Cookie consent configuration"
-msgstr ""
+msgstr "Cookie Constent Konfiguration"
 
 #: ../controlpanel/interfaces.py:147
 msgid "Cookie(s) initial value"
-msgstr ""
+msgstr "Standardwert des Cookies"
 
 #: ../controlpanel/interfaces.py:138
 msgid "Cookies"
-msgstr ""
+msgstr "Cookies"
 
 #: ../configure.zcml:59
 msgid "Cookies consent settings used by Emilia-Romagna Region"
-msgstr ""
+msgstr "Cookie Consent Einstellungen"
 
 #: ../browser/dashboard.pt:64
 msgid "Cookies preferences for this site"
-msgstr ""
+msgstr "Cookie Einstellungen für diese Website"
 
 #: ../browser/dashboard.pt:96
 msgid "Deny consent"
-msgstr ""
+msgstr "Ablehnen"
 
 #: ../browser/dashboard.pt:85
 msgid "General cookies consent"
-msgstr ""
+msgstr "Allgemeine Cookie-Nutzung"
 
 #: ../browser/dashboard.pt:93
 msgid "Grant consent"
-msgstr ""
+msgstr "Zustimmen"
 
 #: ../controlpanel/interfaces.py:33
 msgid "Language"
-msgstr ""
+msgstr "Sprache"
 
 #: ../jsconfiguration/banner-configuration-labels.pt:2
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../controlpanel/interfaces.py:263
 msgid "Opt-out configuration"
-msgstr ""
+msgstr "Opt-out Konfiguration"
 
 #: ../controlpanel/interfaces.py:255
 msgid "Opt-out configurations"
-msgstr ""
+msgstr "Opt-out Konfiguration"
 
 #: ../controlpanel/view.py:29
 msgid "Opt-out dashboard"
-msgstr ""
+msgstr "Opt-out Dashboard"
 
 #: ../controlpanel/interfaces.py:157
 msgid "Opt-out entry titles and descriptions"
-msgstr ""
+msgstr "Opt-out Eintrag Titel und Beschreibungen"
 
 #: ../controlpanel/interfaces.py:166
 msgid "Opt-out title and description"
-msgstr ""
+msgstr "Opt-out Titel und Beschreibung"
 
 #: ../configure.zcml:45
 msgid "RER: Cookies Consent"
-msgstr ""
+msgstr "Cookie Consent"
 
 #: ../configure.zcml:59
 msgid "RER: Cookies Consent default configuration"
-msgstr ""
+msgstr "Standardeinstellung für Cookie Consent"
 
 #: ../configure.zcml:52
 msgid "RER: Cookies Consent upgrade to 2000"
-msgstr ""
+msgstr "Update Cookie Consent zur Profilversion 2000"
 
 #: ../jsconfiguration/banner-configuration-labels.pt:3
 msgid "Reject"
-msgstr ""
+msgstr "Ablehnen"
 
 #: ../controlpanel/interfaces.py:66
 msgid "Text of the Privacy Policy link"
-msgstr ""
+msgstr "Text des Links zu den Datenschutzbestimmungen"
 
 #: ../controlpanel/interfaces.py:75
 msgid "Text of the link to opt-out dashboard"
-msgstr ""
+msgstr "Text des Links zum Opt-out Dashboard"
 
 #: ../controlpanel/interfaces.py:56
 msgid "URL of the Privacy Policy"
-msgstr ""
+msgstr "URL zu den Datenschutzbestimmungen."
 
 #. Default: "A long description that must explain what this opt-out will do if activated.\nYou can also use HTML here."
 #: ../controlpanel/interfaces.py:115
 msgid "app_description_help"
-msgstr ""
+msgstr "Die Beschreibung, die erkärt was das Opt-out macht, wenn es aktiviert ist. Sie können HTML verwenden."
 
 #. Default: "A unique identifier for the application influenced bt this opt-out"
 #: ../controlpanel/interfaces.py:130
 msgid "app_id_help"
-msgstr ""
+msgstr "Ein eindeutiges Label für die Applikation, die durch dieses Opt-out gesteuert wird."
 
 #. Default: "This will be the title used in the opt-out configuration dashboard."
 #: ../controlpanel/interfaces.py:106
 msgid "app_title_help"
-msgstr ""
+msgstr "Dieser Titel wird für die App im Opt-out Dashboard benutzt."
 
 #. Default: "A list of cookies names prefixes.\nThis opt-out will generate a cookie in the form PREFIX-optout for every defined prefix."
 #: ../controlpanel/interfaces.py:139
 msgid "cookies_help"
-msgstr ""
+msgstr "Eine Liste von Präfixen von Cookienamen. Dieser Opt-out generiert ein Cookie in der Form PRÄFIX-optout für jeden Präfix."
 
 #. Default: "The text to be used when generating the URL to the opt-out dashboard"
 #: ../controlpanel/interfaces.py:76
 msgid "dashboard_link_text"
-msgstr ""
+msgstr "Text zum Link für das Opt-out dashboard"
 
 #. Default: "When a user access for the first time the site, all of the opt-out cookies are set.\nYou must select the default value for those cookies."
 #: ../controlpanel/interfaces.py:148
 msgid "default_value_help"
-msgstr ""
+msgstr "Wenn ein User die Website zum ersten Mal besucht, werden alle Opt-out Cookies gesetzt. Hier können Sie den Standardwert für diese Cookies festlegen."
 
 #. Default: "Global settings for accepting or denying cookies in this site."
 #: ../browser/dashboard.pt:88
 msgid "global_optput_description"
-msgstr ""
+msgstr "Globale Einstellung für die Nutzung von Cookies"
 
 #. Default: "If checked, any click on links on any page will be interpreted as the user accepted the cookie policy."
 #: ../controlpanel/interfaces.py:230
 msgid "help_accept_on_click"
-msgstr ""
+msgstr "Falls diese Option aktiviert ist wird jeder Klick auf der Seite automatisch als Aktzeptieren der Datenschutzbestimmungen gewertet."
 
 #. Default: "For every involved language, provide a configuration of the cookie consent banner.\nThe first defined policy configuration will be the default ones (the ones used when not language specific configuration is found)."
 #: ../controlpanel/interfaces.py:239
 msgid "help_cookie_consent_configuration"
-msgstr ""
+msgstr "Für jede angegebene Sprache wird eine Konfiguration für den Cookie Consent Banner angelegt. Die erste Konfiguration ist die Standardkonfiguration und wird für alle nicht definierten Sprachen verwendet."
 
 #. Default: "When the user accepted the general cookie policy he can still accept/decline a single kind of cookie(s) from a 3rd part application.\nFrom this panel you can configure opt-out cookies for those applications.\nPLEASE NOTE: this product will only handle and generate cookies, is duty of others products to use those cookies in the correct manner."
 #: ../controlpanel/interfaces.py:256
 msgid "help_optout_configuration"
 msgstr ""
+"Falls ein Benutzer der allgemeinen Cookienutzung zustimmt, kann er immer noch einzelne Cookies von Drittanbieter Applikationen ablehnen. Hier können diese Opt-out Cookies für diese Drittanbieter konfiguriert werden.\n"
+"ACHTUNG! Dieses Produkt erstellt und reicht diese Cookies nur durch. Es liegt an den Applikationen der Drittanbieter diese korrekt zu verarbeiten"
 
 #. Default: "For every involved language provide title and description that will be used for generate an translated opt-out dashboard.\nIn the case a specific translation is missing, the first in the list will be used as default.\nIf this field is not filler, a translation for \"APPID_optout_title\" and \"APPID_optout_description\" will be used."
 #: ../controlpanel/interfaces.py:158
 msgid "help_optout_texts"
-msgstr ""
+msgstr "Für jede konfigurierte Sprache geben Sie Titel und Beschreibung an. Diese Einträge werden benutzt, um ein übersetztes Opt-out Dashboard zu generieren. Falls eine bestimmte Übersetzung fehlt, wird die erste in der Liste als Standard verwendet. Falls dieses Feld nicht gesetzt ist, wird eine Übersetzung mit den msgids \"APPID_optid_title\" und \"APPID_optout_description\" verwendet."
 
 #. Default: "Technical cookies do not generally require user consent because they are needed to operate the website or to provide requested services. For other types of cookies, you can select which ones to accept or reject from the list below."
 #: ../browser/dashboard.pt:70
 msgid "optout_dashboard_description"
-msgstr ""
+msgstr "In der folgenden Liste können Sie die Verwendung von Cookies auf der Website einschränken, indem in Ihrem aktiven Browser sogenannte Opt-Out-Cookies zur Signalisierung einer Ablehnung gesetzt werden."
 
 #. Default: "The text to be used when generating the URL specified in the URL of the Privacy Policy\".\nIf not provided, the full URL is used."
 #: ../controlpanel/interfaces.py:67
 msgid "privacy_link_text_help"
-msgstr ""
+msgstr "Der Text der für den Link zu den Datenschutzbestimmungen verwendet wird. Falls dieses Feld leer gelassen wird, wird die vollständige URL verwendet."
 
 #. Default: "An URL, or a absolute path, to a page where user can read the full Privacy Policy of your site.\nExamples: \"http://externalsite.com/privacy.html\", \"/internal/document\"."
 #: ../controlpanel/interfaces.py:57
 msgid "privacy_link_url_help"
-msgstr ""
+msgstr "Eine URL, oder ein absoluter Pfad zu den Datenschutzbestimmungen. Zum Beispiel: \"https://www.example.com/privacy.html\" oder \"/internal/privacy\""
 
 #. Default: "Provide the text to be put inside the cookie consent banner.\nYou can use HTML here but you can avoid it.\nUse the \"$privacy_link\" marker to insert an HTML link to the Privacy Policy (see below).\nIf you want full controls over the HTML generated you can use the \"$privacy_link_url\" marker (URL of the link) and \"$privacy_link_text\" (text of the link).\nIn the same way you can use \"$dashboard_link\", \"$dashboard_link_url\" and \"$dashboard_text\" to provide links to the opt-out dashboard."
 #: ../controlpanel/interfaces.py:42
 msgid "text_help"
-msgstr ""
+msgstr "Hier können Sie den Text angeben, der im Cookie Consent Banner erscheinen soll. Sie können HTML verwenden, müssen aber nicht. Sie können den Platzhalter \"$privacy_link\" verwenden, um den Link zu den Datenschutzbestimmungen (siehe unten) einzufügen. Falls sie noch feinere Kontrolle über das resultierende HTML benötigen, können Sie die Platzhalter \"$privacy_link_url\" (für die URL zu den Datenschutzbestimmungen) und \"$privacy_link_text\" (Text für den Link zu den Dateschutzbestimmungen) verwenden. In der gleichen Weise können Sie die Platzhalter \"$dashboard_link\", \"$dashboard_link_url\" und \"$dashboard_link_text\" zur Verlinkung des Opt-out dashboards verwenden."
