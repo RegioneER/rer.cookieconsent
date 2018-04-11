@@ -12,6 +12,8 @@ Changelog
   [cekk]
 - German translations
   [tomgross]
+- Add uninstall profile
+  [tomgross]
 
 0.1.3 (2017-07-03)
 ------------------
