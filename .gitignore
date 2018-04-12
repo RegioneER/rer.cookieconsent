@@ -7,7 +7,7 @@
 bin/
 develop-eggs/
 include/
-lib/
+lib*
 local/
 parts/
 pip-selfcheck.json

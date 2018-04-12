@@ -16,9 +16,3 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rer.cookieconsent\n"
-
-msgid "RER: Cookies Consent"
-msgstr ""
-
-msgid "A cookie consent solution that can be used for European Cookie Law or when you care about user's privacy"
-msgstr ""
