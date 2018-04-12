@@ -1,7 +1,16 @@
 Changelog
 =========
 
-0.2.0 (unreleased)
+0.3.0 (unreleased)
+------------------
+
+- German translations
+  [tomgross]
+- Add uninstall profile
+  [tomgross]
+
+
+0.2.0 (2017/12/21)
 ------------------
 
 - Move resources to bundle
@@ -10,10 +19,7 @@ Changelog
   [cekk]
 - Add travis config
   [cekk]
-- German translations
-  [tomgross]
-- Add uninstall profile
-  [tomgross]
+
 
 0.1.3 (2017-07-03)
 ------------------
