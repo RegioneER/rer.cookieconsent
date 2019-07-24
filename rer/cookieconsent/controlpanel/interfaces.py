@@ -18,7 +18,7 @@ trueFalseVocabulary = SimpleVocabulary.fromItems((
 def default_language():
     site = api.portal.get()
     try:
-        return site.portal_languages.getDefaultLanguage().decode('utf-8')
+        return site.portal_languages.getDefaultLanguage()
     except AttributeError:
         # PLONE 5
         language_tool = api.portal.get_tool('portal_languages')

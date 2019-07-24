@@ -87,7 +87,7 @@ class CookieConsentXMLAdapter(XMLAdapterBase):
             ):
                 if name == 'lang':
                     # check if the language is valid for that site
-                    lang = self._getNodeText(child).decode('utf-8')
+                    lang = self._getNodeText(child)
                     lang_tool = getToolByName(self.context, 'portal_languages')
                     if lang not in lang_tool.getSupportedLanguages():
                         logger.info(
@@ -97,7 +97,7 @@ class CookieConsentXMLAdapter(XMLAdapterBase):
                 setattr(
                     bannerconf,
                     name.replace('-', '_'),
-                    self._getNodeText(child).decode('utf-8'),
+                    self._getNodeText(child),
                 )
         settings.cookie_consent_configuration += (bannerconf,)
 
