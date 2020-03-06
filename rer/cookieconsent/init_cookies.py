@@ -10,7 +10,10 @@ from rer.cookieconsent.interfaces import ICookieConsentLayer
 from rer.cookieconsent.utils import setCookie
 from zope.component import queryUtility
 
-import urlparse
+try:
+    from urlparse import urlparse
+except ImportError:
+    from urllib.parse import urlparse
 
 
 # @adapter(IPubSuccess)
@@ -24,8 +27,10 @@ def send_initial_cookies_values(event):
     request = event.request
 
     # Checks to limit subscribers calls
-    if config.COOKIECONSENT_NAME in request.response.cookies or \
-            ICookieConsentLayer not in registered_layers():
+    if (
+        config.COOKIECONSENT_NAME in request.response.cookies
+        or ICookieConsentLayer not in registered_layers()
+    ):
         return
     site = api.portal.get()
     if site is None:
@@ -57,6 +62,7 @@ def optout_all(request, value=None, update=False, writeRequest=False):
                 request.response,
                 cookiename,
                 cookievalue,
-                expires=nextYear.rfc822())
+                expires=nextYear.rfc822(),
+            )
             if writeRequest:
                 request.cookies[cookiename] = cookievalue

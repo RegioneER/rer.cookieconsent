@@ -17,9 +17,9 @@ class SupportedContentLanguageVocabulary(AvailableContentLanguageVocabulary):
             items.sort(key=itemgetter(1))
             items = [
                 SimpleTerm(
-                    i[0].decode('utf-8'),
-                    i[0].decode('utf-8'),
-                    i[1].decode('utf-8')) for i in items]
+                    i[0],
+                    i[0],
+                    i[1]) for i in items]
         return SimpleVocabulary(items)
 
 

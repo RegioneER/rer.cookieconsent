@@ -12,6 +12,7 @@ from rer.cookieconsent.utils import setCookie
 from zope.component import getMultiAdapter
 from zope.component import queryUtility
 from zope.i18n import translate
+import six
 
 
 class OptOutDashboardView(BrowserView):
@@ -64,7 +65,7 @@ class OptOutDashboardView(BrowserView):
     def _i18n_alternative(self, app_id, id):
         oo_i18n_id = u'{0}_optout_{1}'.format(app_id, id)
         oo_item = translate(_(oo_i18n_id), context=self.request)
-        if unicode(oo_item) == oo_i18n_id:
+        if six.text_type(oo_item) == oo_i18n_id:
             return app_id
         return oo_item
 

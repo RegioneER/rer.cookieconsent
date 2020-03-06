@@ -4,9 +4,20 @@ sudo: false
 cache:
   directories:
     - $HOME/buildout-cache
-env:
-  - PLONE_VERSION=5.0.x
-  - PLONE_VERSION=5.1.x
+matrix:
+  include:
+      env: PLONE_VERSION=5.0.x
+    - python: "2.7"
+      env: PLONE_VERSION=5.1.x
+    - python: "2.7"
+      env: PLONE_VERSION=5.2.x
+    - python: "3.6"
+      env: PLONE_VERSION=5.2.x
+    - python: "3.7"
+      env: PLONE_VERSION=5.2.x
+      dist: xenial
+      sudo: true
+  fast_finish: true
 before_install:
   - mkdir -p $HOME/buildout-cache/{eggs,downloads}
   - pip install -r https://raw.githubusercontent.com/plone/buildout.coredev/5.1/requirements.txt
