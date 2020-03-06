@@ -11,7 +11,7 @@ from rer.cookieconsent.utils import setCookie
 from zope.component import queryUtility
 
 try:
-    from urllib import urlparse
+    from urlparse import urlparse
 except ImportError:
     from urllib.parse import urlparse
 
