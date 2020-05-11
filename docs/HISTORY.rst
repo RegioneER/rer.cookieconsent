@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.1 (unreleased)
+0.4.1 (2020-05-11)
 ------------------
 
 - Add validate_invariants attribute in persistent controlpanel object.
