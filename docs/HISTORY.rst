@@ -4,7 +4,8 @@ Changelog
 0.4.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add validate_invariants attribute in persistent controlpanel object.
+  [cekk]
 
 
 0.4.0 (2020-03-06)
