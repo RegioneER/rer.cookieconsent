@@ -48,6 +48,10 @@ description:
     shortDescription: >-
       Una soluzione per Plone per il consenso ai cookie; usato per la Legge
       Europea sui Cookie dalla Regione Emilia-Romagna
+    screenshots:
+       - docs/images/rer.cookieconsent-0.1.0-01.png
+       - docs/images/rer.cookieconsent-0.1.0-02.png
+       - docs/images/rer.cookieconsent-0.1.0-03.png
 developmentStatus: stable
 it:
   conforme:
