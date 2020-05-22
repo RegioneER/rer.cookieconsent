@@ -1,0 +1,95 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - application-development
+  - compliance-management
+dependsOn:
+  open:
+    - name: Plone
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: '4.3'
+logo: docs/rer-logo.png
+description:
+  it:
+    features:
+      - Banner di conferma del consenso ai cookie
+      - Dashboard di opt-out per gestire i cookie consentiti
+      - Configurazione del banner
+      - Integrazione con altri addon Plone
+    genericName: Plone addon
+    longDescription: >
+      Un componente aggiuntivo per fornire una soluzione completa per il
+      **consenso ai cookie** per il tuo sito.
+
+
+      È principalmente destinato alla recente [Legge Europea sui
+      Cookie](http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32009L0136),
+      ma può essere utilizzato ovunque se ti interessa la privacy dell'utente.
+
+
+      Questo componente aggiuntivo offre due tipi di funzionalità diverse:
+
+
+      - Un banner di conferma del consenso ai cookie, che dovrebbe collegare (ma
+      non è obbligatorio) l'utente a una Privacy  Policy.
+
+      - Una **dashboard di opt-out** per accettare / rifiutare singoli cookie
+
+
+      Questo componente aggiuntivo è anche compatibile con siti
+      internazionalizzati
+      ([LinguaPlone](https://pypi.python.org/pypi/Products.LinguaPlone)
+      supportato).
+    shortDescription: >-
+      Una soluzione per Plone per il consenso ai cookie; usato per la Legge
+      Europea sui Cookie dalla Regione Emilia-Romagna
+    screenshots:
+       - docs/images/rer.cookieconsent-0.1.0-01.png
+       - docs/images/rer.cookieconsent-0.1.0-02.png
+       - docs/images/rer.cookieconsent-0.1.0-03.png
+developmentStatus: stable
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: true
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+legal:
+  license: GPL-2.0-only
+  mainCopyrightOwner: Regione Emilia-Romagna
+  repoOwner: Regione Emilia-Romagna
+localisation:
+  availableLanguages:
+    - it
+    - en
+  localisationReady: true
+maintenance:
+  contacts:
+    - affiliation: Regione Emilia-Romagna
+      email: webmaster@regione.emilia-romagna.it
+      name: Sara Turra
+  contractors:
+    - name: RedTurtle
+      until: '2020-08-31'
+      website: 'https://www.redturtle.it/'
+  type: contract
+name: rer.cookieconsent
+platforms:
+  - web
+releaseDate: '2015-09-16'
+softwareType: addon
+softwareVersion: 0.4.0
+url: 'https://github.com/RegioneER/rer.cookieconsent'
+usedBy:
+  - Regione Emilia-Romagna
