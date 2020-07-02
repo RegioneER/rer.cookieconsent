@@ -54,6 +54,8 @@ description:
        - docs/images/rer.cookieconsent-0.1.0-03.png
 developmentStatus: stable
 it:
+  riuso:
+    codiceIPA: r_emiro
   conforme:
     gdpr: true
     lineeGuidaDesign: false
