@@ -7,3 +7,4 @@ global-include *.mo
 recursive-exclude parts *
 exclude .installed.cfg
 include *.txt
+exclude *.yml
