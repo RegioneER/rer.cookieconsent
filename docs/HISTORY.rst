@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.2 (unreleased)
+0.4.2 (2020-08-05)
 ------------------
 
 - Fix bundle configuration.
