@@ -15,5 +15,16 @@
       handler=".upgrades.to_2000"
     />
   </genericsetup:upgradeSteps>
+  <genericsetup:upgradeSteps
+    source="2000"
+    destination="2001"
+    profile="rer.cookieconsent:default">
+
+    <genericsetup:upgradeStep
+      title="Fix bundle registration"
+      description=""
+      handler=".upgrades.to_2001"
+    />
+  </genericsetup:upgradeSteps>
 
 </configure>

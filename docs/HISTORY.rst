@@ -4,7 +4,8 @@ Changelog
 0.4.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix bundle configuration.
+  [cekk]
 
 
 0.4.1 (2020-05-11)
