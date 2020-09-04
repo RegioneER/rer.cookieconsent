@@ -23,22 +23,19 @@ description:
       - Integrazione con altri addon Plone
     genericName: Plone addon
     longDescription: >
-      Un componente aggiuntivo per fornire una soluzione completa per il
-      **consenso ai cookie** per il tuo sito.
-
-
-      È principalmente destinato alla recente [Legge Europea sui
-      Cookie](http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32009L0136),
-      ma può essere utilizzato ovunque se ti interessa la privacy dell'utente.
+      Plugin per Plone che fornisce una soluzione completa per il **consenso ai
+      cookie** per il tuo sito, conforme alla normativa sulla Privacy (v.
+      [https://www.garanteprivacy.it/temi/cookie](https://www.garanteprivacy.it/temi/cookie)).
 
 
       Questo componente aggiuntivo offre due tipi di funzionalità diverse:
 
 
-      - Un banner di conferma del consenso ai cookie, che dovrebbe collegare (ma
-      non è obbligatorio) l'utente a una Privacy  Policy.
+      - Un **banner** di conferma del **consenso ai cookie**, che dovrebbe
+      collegare (ma non è obbligatorio) l'utente a una Privacy Policy.
 
-      - Una **dashboard di opt-out** per accettare / rifiutare singoli cookie
+      - Una **dashboard di opt-out** per consentire all’utente di accettare /
+      rifiutare singoli cookie
 
 
       Questo componente aggiuntivo è anche compatibile con siti
@@ -46,8 +43,8 @@ description:
       ([LinguaPlone](https://pypi.python.org/pypi/Products.LinguaPlone)
       supportato).
     shortDescription: >-
-      Una soluzione per Plone per il consenso ai cookie; usato per la Legge
-      Europea sui Cookie dalla Regione Emilia-Romagna
+      Una soluzione per gestire il consenso ai cookie conforme alla normativa
+      sulla privacy italiana ed europea
     screenshots:
        - docs/images/rer.cookieconsent-0.1.0-01.png
        - docs/images/rer.cookieconsent-0.1.0-02.png
@@ -86,7 +83,7 @@ maintenance:
       until: '2020-08-31'
       website: 'https://www.redturtle.it/'
   type: contract
-name: rer.cookieconsent
+name: Soluzione per consenso cookie per CMS Plone
 platforms:
   - web
 releaseDate: '2015-09-16'
