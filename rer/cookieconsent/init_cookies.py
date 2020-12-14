@@ -38,7 +38,7 @@ def send_initial_cookies_values(event):
 
     # TODO: evaluate if move this list in a Plone registry field (performance?)
     for subdomain in config.DOMAIN_WHITELIST:
-        if urlparse.urlparse(request.URL).netloc.find(subdomain) > -1:
+        if urlparse(request.URL).netloc.find(subdomain) > -1:
             return
     optout_all(request, writeRequest=True)
 
@@ -53,7 +53,7 @@ def optout_all(request, value=None, update=False, writeRequest=False):
     settings = registry.forInterface(ICookieConsentSettings)
     for oo_conf in settings.optout_configuration:
         for cookie in oo_conf.cookies:
-            cookiename = '{0}-optout'.format(cookie)
+            cookiename = "{0}-optout".format(cookie)
             if cookiename in request.cookies and not update:
                 continue
             nextYear = DateTime() + 365

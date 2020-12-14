@@ -4,7 +4,8 @@ Changelog
 0.4.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix python2 compatiblity.
+  [cekk]
 
 
 0.4.2 (2020-08-05)
