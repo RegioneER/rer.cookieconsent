@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.3 (unreleased)
+0.4.3 (2020-12-14)
 ------------------
 
 - Fix python2 compatiblity.
