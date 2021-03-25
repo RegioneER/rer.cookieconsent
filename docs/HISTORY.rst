@@ -4,7 +4,8 @@ Changelog
 0.4.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix python2 compatiblity on save data.
+  [cekk]
 
 
 0.4.3 (2020-12-14)
