@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.4 (unreleased)
+0.4.4 (2021-03-25)
 ------------------
 
 - Fix python2 compatiblity on save data.
