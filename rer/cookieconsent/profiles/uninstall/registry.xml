@@ -1,0 +1,16 @@
+<registry>
+    <records interface="rer.cookieconsent.controlpanel.interfaces.ICookieConsentSettings" />
+
+    <!-- RESOURCE -->
+  <records prefix="plone.resources/rer.cookieconsent"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'
+           remove="True">
+  </records>
+  
+  <!-- BUNDLE -->
+  <records prefix="plone.bundles/rer.cookieconsent-bundle"
+           interface='Products.CMFPlone.interfaces.IBundleRegistry'
+           remove="True">
+  </records>
+</registry>
+

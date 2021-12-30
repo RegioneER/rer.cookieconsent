@@ -4,7 +4,8 @@ Changelog
 0.4.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix uninstall profile.
+  [cekk]
 
 
 0.4.4 (2021-03-25)
