@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.5 (unreleased)
+0.4.5 (2021-12-30)
 ------------------
 
 - Fix uninstall profile.
