@@ -4,7 +4,8 @@ Changelog
 0.4.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix open redirection.
+  [mamico]
 
 
 0.4.5 (2021-12-30)
