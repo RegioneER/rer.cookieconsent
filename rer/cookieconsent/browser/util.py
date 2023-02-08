@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from rer.cookieconsent.init_cookies import optout_all
 from zope.publisher.interfaces.browser import IBrowserView
@@ -21,5 +21,9 @@ class ResetOptoutView(BrowserView):
                 context.__name__)
         else:
             here_url = context.absolute_url()
-        back_to = self.request.form.get('came_from') or here_url
+        came_from = self.request.form.get('came_from')
+        if came_from and getToolByName(self.context, 'portal_url').isURLInPortal(came_from):
+            back_to = came_from
+        else:
+            back_to = here_url
         self.request.response.redirect(back_to)
