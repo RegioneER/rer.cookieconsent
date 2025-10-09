@@ -4,7 +4,7 @@ from zope.interface import implementer
 from zope.component import adapts
 from zope.component import getSiteManager
 from zope.component import queryMultiAdapter
-from zope.component.interfaces import IComponentRegistry
+from zope.interface.interfaces import IComponentRegistry
 from Products.GenericSetup.interfaces import IBody
 from Products.GenericSetup.interfaces import ISetupEnviron
 from Products.GenericSetup.utils import XMLAdapterBase

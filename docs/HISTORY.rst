@@ -6,7 +6,8 @@ Changelog
 
 - Fix open redirection.
   [mamico]
-
+- Plone 6 compatibility.
+  [cekk]
 
 0.4.5 (2021-12-30)
 ------------------
